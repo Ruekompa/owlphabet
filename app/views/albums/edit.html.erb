@@ -1,0 +1,64 @@
+ <%= form_for [@artist, @album] do |f| %>
+<section class="section white">
+<div class="container">
+<h2>Edit Album</h2>
+        <div class="col s12 m12">
+          <div class="card">
+            <div class="card-content">
+        
+            <div class="row">
+             <div class="input-field col s12 m6">
+             
+              <p>
+             <%= image_tag(@album.cover_art_url, :class => "responsive-img") if @album.cover_art? %>
+                <div class="file-field input-field">
+                 <div class="btn red accent-2">
+                 <span>Album Cover</span>
+                <%= f.file_field :cover_art %>
+                 </div>
+               </div>
+                 </p>
+                 <p>
+                  <%= f.check_box :remove_cover_art, :id => "remove_cover_art" %>
+                  <label for="remove_cover_art">
+                   Remove Image
+                   </label>
+                 </p>
+               </div>
+         </div>
+
+            <div class="row">
+               <div class="input-field col s12 m6"> 
+             <label>Release Date</label>
+              <%= f.date_field :release_date, :type=> "date", :class => "datepicker" %>
+              </div>
+           </div>
+           <div class="row">  
+             <div class="input-field col s12">
+            <%= f.text_field :title, :class => "validate", :type => "text" %>
+             <label for="title">Title</label>
+            </div>
+            </div>
+            <div class="row">
+            <div style="padding-top: 25px;" class="input-field col s12">
+           <p>
+            <%= f.text_field :genre_list, value: @album.genre_list.to_s %>
+            <%= f.label :genre_list, "Genres (separated by commas)", :style => "top: 2.8rem;" %>
+            </p>
+          </div>
+          </div>
+          </div>
+       
+            <div class="card-action">
+              <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
+               
+            </div>
+          </div>
+      
+        </div>
+      </div>
+      <% end %>
+</div>
+</section>
+
+
