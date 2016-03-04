@@ -3,12 +3,35 @@
 <head>
   <title>Owlphabet</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
+ <link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header>
+<div id="top" class="navbar-fixed">
+<nav>
+    <div class="nav-wrapper white">
+          <a style="padding-left: 1em;" href="/" class="brand-logo black-text hide-on-med-and-down">OWLPHABET</a>
+        <a href="/" class="brand-logo black-text hide-on-large-only">OWLPHABET</a>
+        <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+         <li class="invite"><a style="font-weight: 400;" class="black-text" href="/#mission">Mission</a></li>
+          <li style="padding-right: 1rem;" class="invite"><a class="waves-effect waves-light btn" href="/invite">Request Invite</a></li>
+
+        
+      </ul>
+     <ul class="side-nav" id="mobile-nav">
+         <li><a style="font-weight: 400;" class="black-text" href="/#mission">Welcome</a></li>
+         <li><a style="font-weight: 400;" class="black-text" href="/#invite">Request Invite</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  </header>
 <p class="notice center-align"><%= notice %></p>
 <p class="alert center-align"><%= alert %></p>
 
