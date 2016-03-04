@@ -1,0 +1,7 @@
+nav ul li.invite:hover, nav ul li.invite.active {
+     background-color: rgba(0, 0, 0, 0.1); 
+}
+
+a.brand-logo.black-text {
+    font-family: Raleway, sans-serif;
+}
