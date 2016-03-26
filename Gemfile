@@ -37,9 +37,17 @@ gem 'puma'
 
 gem 'mini_magick'
 
-gem "carrierwave"
+gem 'net-ssh'
 
-gem 'materialize-sass'
+gem "fog"
+
+gem 'fog-google'
+
+gem 'google-api-client', '< 0.9', '>= 0.6.2'
+
+gem "carrierwave", :git => 'git://github.com/carrierwaveuploader/carrierwave'
+
+gem 'materialize-sass', '~> 0.97.5'
 
 gem 'friendly_id', '~> 5.1.0'
 

@@ -5,3 +5,15 @@ nav ul li.invite:hover, nav ul li.invite.active {
 a.brand-logo.black-text {
     font-family: Raleway, sans-serif;
 }
+
+nav ul li.invite:hover, nav ul li.invite.active {
+    background-color: transparent;
+}
+
+a#brand {
+    opacity: 0;
+}
+
+a#brandMobile {
+    opacity: 0;
+}

@@ -43,6 +43,13 @@ $(document).ready(function () {
       $(this).replaceWith('<a href="#">' + $(this).text() + '</a>');
     });
   });
+
+    var options = [
+    {selector: '#brand', offset: 200, callback: 'Materialize.fadeInImage("#brand")' },
+    {selector: '#brandMobile', offset: 200, callback: 'Materialize.fadeInImage("#brandMobile")' }
+  ];
+  Materialize.scrollFire(options);
+
 });
 
 

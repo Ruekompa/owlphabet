@@ -1,12 +1,14 @@
 class ArtistsController < ApplicationController
+
+def index
+	@artists = Artist.all
+	@artist = Artist.friendly.find params[:id]
+end
+
 def show
-	 if Artist.find params[:id] == "sign_out"
-      session.destroy
-      flash[:notice] = 'Signed Out'
-      redirect_to root_path
-    else
-      @artist = Artist.friendly.find params[:friendly_id]
-    end
+	@artist = Artist.friendly.find params[:id]
 
 end
+
+
 end
