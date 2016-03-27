@@ -2,8 +2,11 @@ nav ul li.invite:hover, nav ul li.invite.active {
      background-color: rgba(0, 0, 0, 0.1); 
 }
 
-a.brand-logo.black-text {
-    font-family: Raleway, sans-serif;
+.brand-logo {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
 }
 
 nav ul li.invite:hover, nav ul li.invite.active {

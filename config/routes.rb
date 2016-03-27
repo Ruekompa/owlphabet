@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   devise_for :artists, controllers: { registrations: 'artists/registrations' }
   as :artist do
   get 'artists/edit' => 'artists/registrations#edit'   
-  put 'artists/:id' => 'artists/registrations#update'           
+  put 'artists/:id' => 'artists/registrations#update'
+  get 'artists/profile' => 'profiles#edit'           
   end
  
   root to: "pages#home"
