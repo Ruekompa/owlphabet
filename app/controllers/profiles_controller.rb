@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
 
   	  if @profile.save 
         flash[:notice] = 'Profile created'
-        redirect_to artist_profile_path
+        redirect_to artists_profile_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
@@ -19,7 +19,6 @@ class ProfilesController < ApplicationController
     end
 
  	def edit
-      @artist = Artist.find(params[:artist_id])
       @profile = current_artist.build_profile()
     end 
 

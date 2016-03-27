@@ -3,14 +3,15 @@ class AlbumsController < ApplicationController
 	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
 
 	def index
-	 @artist = Artist.friendly.find params[:artist_id]
-	 @albums = Album.friendly.reorder("release_date DESC")
-
+	  @artist = Artist.friendly.find params[:artist_id]
+	  @albums = Album.friendly.reorder("release_date DESC")
+    @tracks = @albums.track.find params[:album_id]
 	end
 
 	def show
 	  @artist = Artist.friendly.find params[:artist_id]
 	  @album = Album.friendly.find params[:id]
+    @track = @
 	end
 
     def new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209025104) do
+ActiveRecord::Schema.define(version: 20160327204837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20151209025104) do
     t.datetime "updated_at",   null: false
     t.string   "cover_art"
     t.string   "slug"
+    t.integer  "artist_id"
   end
+
+  add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -40,10 +43,12 @@ ActiveRecord::Schema.define(version: 20151209025104) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "slug"
+    t.integer  "project_id"
   end
 
   add_index "artists", ["email"], name: "index_artists_on_email", unique: true, using: :btree
   add_index "artists", ["name"], name: "index_artists_on_name", unique: true, using: :btree
+  add_index "artists", ["project_id"], name: "index_artists_on_project_id", using: :btree
   add_index "artists", ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true, using: :btree
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
@@ -70,6 +75,15 @@ ActiveRecord::Schema.define(version: 20151209025104) do
   end
 
   add_index "profiles", ["artist_id"], name: "index_profiles_on_artist_id", using: :btree
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "artist_id"
+  end
+
+  add_index "projects", ["artist_id"], name: "index_projects_on_artist_id", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
@@ -103,4 +117,7 @@ ActiveRecord::Schema.define(version: 20151209025104) do
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
   add_index "tracks", ["artist_id"], name: "index_tracks_on_artist_id", using: :btree
 
+  add_foreign_key "albums", "artists"
+  add_foreign_key "artists", "projects"
+  add_foreign_key "projects", "artists"
 end
