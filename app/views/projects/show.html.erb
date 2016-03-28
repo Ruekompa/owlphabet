@@ -1,12 +1,22 @@
  <div class="parallax-container">
-    <div class="parallax"><img src="<%= @project.cover_photo_url(:cover_one_six) %>"></div>
+    <div class="parallax"><img src="<%= @project.cover_photo_url %>"></div>
  </div>
- <div class="section white">
+ <div class="section grey lighten-3">
  <div class="container albums white">
   <div class="row">
     <div class="col s12">
  	<h1 style="padding-left: 1rem;"><%= @project.title %></h1>
  	</div>
+ 	</div>
+
+ 	<div class="row">
+ 	<div class="col s12">
+ 	<% if @albums == nil %>
+ 	<p style="padding-left: 1rem;">No Albums Found.</p>
+ 	<a style="margin-bottom: 200px; margin-left: 1rem;" href="/albums/new" class="btn red">New Album</a>
+ 	<% end %>
+ 	</div>
+ 	</div>
+
   </div>
  </div>
-</div>

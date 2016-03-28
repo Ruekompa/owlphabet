@@ -33,3 +33,9 @@ a.card-date {
     position: relative;
     top: -7rem;
 }
+
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    margin-top: -65px;
+}

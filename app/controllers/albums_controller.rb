@@ -3,34 +3,37 @@ class AlbumsController < ApplicationController
 	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
 
 	def index
+    @artist = Artist.friendly.find params[:artist_id]
+    @project = Project.friendly.find params[:project_id]
 	  @artist = Artist.friendly.find params[:artist_id]
 	  @albums = Album.friendly.reorder("release_date DESC")
-    @tracks = @albums.track.find params[:album_id]
 	end
 
 	def show
 	  @artist = Artist.friendly.find params[:artist_id]
-	  @album = Album.friendly.find params[:id]
-    @track = @
+	  @album = @artist.album.friendly.find params[:artist_id]
+    @track = @album.track.find params[:album_id]
 	end
 
-    def new
-      @artist = Artist.friendly.find params[:artist_id]
-	  @album = current_artist.album.new
-    end
+  def new
+    @artist = Artist.friendly.find params[:artist_id]
+    @project = Project.friendly.find params[:project_id]
+	  @album = Album.new
+  end
 
-     def create
-      @artist = Artist.friendly.find params[:artist_id]
-      @album = Album.new(album_params)
+  def create
+    @artist = Artist.friendly.find params[:artist_id]
+    @project = Project.friendly.find params[:project_id]
+    @album = Album.new(album_params)
 
   	  if @album.save 
         flash[:notice] = 'Album created'
-        redirect_to artist_albums_path
+        redirect_to artist_project_albums_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
       end
-    end
+  end
 
  	def edit
  	  @artist = Artist.friendly.find params[:artist_id]
@@ -67,6 +70,10 @@ class AlbumsController < ApplicationController
 
     private
 
+     def set_artwork
+       @album = Artwork.find(params[:id])
+     end
+
     def artist_is_current_artist
       unless current_artist.friendly_id == params[:artist_id]
        flash[:notice] = "You may only edit your own content."
@@ -75,7 +82,7 @@ class AlbumsController < ApplicationController
     end
       
     def album_params
-      params.require(:album).permit(:id, :artist_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list)
+      params.require(:album).permit(:id, :artist_id, :project_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list)
     end
 
 
