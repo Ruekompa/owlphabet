@@ -32,10 +32,6 @@ class CoverPhotoUploader < CarrierWave::Uploader::Base
   # end
   # Create different versions of your uploaded files:
 
-  version :cover_one_six do
-    process :resize_to_fill => [2000, 1200]
-  end
-
   version :thumb do
     process :resize_to_fill => [700, 700]
   end

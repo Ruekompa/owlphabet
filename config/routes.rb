@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   resources :projects
 
   resources :artists do
-    resources :albums do
-      resources :tracks
+    resources :projects do
+      resources :albums do
+        resources :tracks
+      end
     end
   end
 end

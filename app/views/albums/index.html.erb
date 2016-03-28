@@ -7,20 +7,17 @@
         <% @albums.each_slice(2) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
- <div class="col s12 m6">
+ <div class="col s12 m4 l4">
 	   <div class="card large">
         <div class="card-image waves-effect waves-block waves-light">
-       <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), artist_album_path(@artist.friendly_id, g.friendly_id) %>
+     <%= image_tag (g.cover_art.url) %> 
 
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"> <%= g.title.titleize %></span>
          <div class="card-action">
-        <a href="/artists/<%= @artist.friendly_id %>/albums/<%= g.friendly_id %>">Tracks</a>
-        <% if artist_signed_in? %> 
-        <a href="/artists/<%= @artist.friendly_id %>/albums/<%= g.friendly_id %>/edit">Edit</a>
-        <%= link_to 'Delete'.html_safe, artist_album_path(@artist.friendly_id, g.friendly_id), :method => 'delete', data: { :confirm => "Do you really want to delete the album #{g.friendly_id} ?" }, :style => "float: right;" %>
-        <% end %>
+       
+     
         </div>
         </div>
        </div>
