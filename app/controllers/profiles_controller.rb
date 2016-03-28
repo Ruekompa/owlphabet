@@ -3,7 +3,7 @@ class ProfilesController < ApplicationController
 
 	def show
 	  @artist = Artist.friendly.find params[:artist_id]
-	  @profile = Profile.find params[:artist_id]
+	  @profile = @artist.profile.find params[:artist_id]
 	 end
 
      def create
