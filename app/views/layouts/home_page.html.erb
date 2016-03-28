@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Owlphabet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="white">
+<header>
+<div id="top" class="navbar-fixed">
+<nav>
+    <div class="nav-wrapper white">
+        <a href="/" class="brand-logo black-text" id="brandMobile">OWLPHABET</a>
+        <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
+         <ul class="right hide-on-med-and-down">
+        
+          <li style="padding-right: 1rem;" class="invite"><a class="waves-effect waves-light btn" href="/invite">Request Invite</a></li>
+
+        
+      </ul>
+     <ul class="side-nav" id="mobile-nav">
+         <li><a style="font-weight: 400;" class="black-text" href="/#mission">Welcome</a></li>
+         <li><a style="font-weight: 400;" class="black-text" href="/#invite">Request Invite</a></li>
+      </ul>
+    </div>
+  </nav>
+  </div>
+  </header>
+<% flash.each do |key, value| %>
+        <div style="text-align: center;" class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+<main role="main">
+<%= yield %>
+</main>
+
+</body>
+</html>

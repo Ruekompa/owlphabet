@@ -71,8 +71,8 @@ class AlbumsController < ApplicationController
 
     private
 
-     def set_artwork
-       @album = Artwork.find(params[:id])
+     def set_album
+       @album = Album.find(params[:id])
      end
 
     def artist_is_current_artist

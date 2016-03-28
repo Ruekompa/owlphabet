@@ -1,6 +1,7 @@
 class Album < ActiveRecord::Base
 	belongs_to :artist
-	has_many :tracks
+	has_many :tracks, :dependent => :destroy
+
 	mount_uploader :cover_art, CoverArtUploader
 	extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]

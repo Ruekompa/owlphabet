@@ -15,7 +15,7 @@
 <div id="top" class="navbar-fixed">
 <nav>
     <div class="nav-wrapper white">
-        <a href="/" class="brand-logo black-text" id="brandMobile">OWLPHABET</a>
+        <a href="/" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
         
@@ -31,10 +31,12 @@
   </nav>
   </div>
   </header>
-<p class="notice center-align"><%= notice %></p>
-<p class="alert center-align"><%= alert %></p>
-
+<% flash.each do |key, value| %>
+        <div style="text-align: center;" class="alert alert-<%= key %>"><%= value %>
+        </div>
+  <% end %>
+<main role="main">
 <%= yield %>
-
+</main>
 </body>
 </html>

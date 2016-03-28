@@ -8,10 +8,10 @@
   <img class="responsive-img materialboxed" src="<%= @album.cover_art_url %>">
   </div>
     <div class="col s12 m9 l9">
- 	<h1><%= @album.title %></h1>
+ 	<h1 class="album-title"><%= @album.title %></h1>
  	  <% if @tracks == nil %>
       <p>No Tracks Found</p>
-      <a href="" class="btn red">Add Tracks</a>
+      <a href="/artists/<%= @artist.friendly_id %>/projects/<%= @project.friendly_id %>/albums/<%= @album.friendly_id %>/tracks/new" class="btn red">Add Tracks</a>
       <% else %>
       <% @track.each do |t| %>
  	  <div class="collection">

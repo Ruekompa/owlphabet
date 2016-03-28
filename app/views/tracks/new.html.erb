@@ -1,4 +1,4 @@
-<%= form_for [@artist, @album, @track] do |f| %>
+<%= form_for [@artist, @project, @album, @track] do |f| %>
 <section class="section white">
 <div class="container">
 <h2>New Tracks</h2>      
@@ -12,10 +12,10 @@
              <div class="file-field input-field">
                  <div class="btn grey darken-2">
                  <span>Track Upload</span>
-                <%= f.file_field :track_media %>
+                <%= f.file_field :songs, :multiple => true %>
                 </div> 
                 <p>
-                  <%= f.check_box :remove_track_media, :id => "remove_track_media" %>
+                  <%= f.check_box :remove_songs, :id => "remove_track_media" %>
                   <label for="remove_track_media">
                    Remove Track
                    </label>
