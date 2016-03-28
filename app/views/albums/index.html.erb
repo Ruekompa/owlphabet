@@ -7,22 +7,22 @@
         <% @albums.each_slice(2) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
- <div class="col s12 m4 l4">
+ <div class="col s12 m4">
 	   <div class="card large">
         <div class="card-image waves-effect waves-block waves-light">
-     <%= image_tag (g.cover_art.url) %> 
+       <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), artist_project_album_path(@artist.friendly_id, @project.friendly_id ,g.id) %>
 
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"> <%= g.title.titleize %></span>
          <div class="card-action">
-       
-     
+        <a href="/artists/<%= @artist.friendly_id %>/projects/<%= @project.friendly_id %>/albums/<%= @album.id %>">Tracks</a>
+      
         </div>
         </div>
        </div>
       </div>
-   <% end %>
+         <% end %>
          </div>
          <% end %>
          <div class="center-align">

@@ -11,8 +11,9 @@ class AlbumsController < ApplicationController
 
 	def show
 	  @artist = Artist.friendly.find params[:artist_id]
-	  @album = @artist.album.friendly.find params[:artist_id]
-    @track = @album.track.find params[:album_id]
+    @project = Project.friendly.find params[:project_id]
+	  @album = Album.find params[:id]
+
 	end
 
   def new
@@ -82,7 +83,7 @@ class AlbumsController < ApplicationController
     end
       
     def album_params
-      params.require(:album).permit(:id, :artist_id, :project_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list)
+      params.require(:album).permit(:id, :artist_id, :project_id, :album_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list)
     end
 
 
