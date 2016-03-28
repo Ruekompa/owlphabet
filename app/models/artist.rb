@@ -3,9 +3,8 @@ class Artist < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise   :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
-  has_one  :profile, :dependent => :destroy
   belongs_to :project, polymorphic: true
-  has_many :albums, :through => :projects
+  belongs_to :albums, polymorphic: true
   has_many :tracks, :through => :albums
  
   extend FriendlyId
