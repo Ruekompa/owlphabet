@@ -20,3 +20,7 @@ a#brand {
 a#brandMobile {
     opacity: 0;
 }
+
+h2.groupings-list {
+    font-size: 2rem;
+}

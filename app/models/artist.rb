@@ -4,7 +4,7 @@ class Artist < ActiveRecord::Base
   devise   :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
   has_one  :profile, :dependent => :destroy
-  belongs_to :project
+  belongs_to :project, polymorphic: true
   has_many :albums, :through => :projects
   has_many :tracks, :through => :albums
  
