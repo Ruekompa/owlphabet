@@ -1,11 +1,16 @@
 class ProjectsController < ApplicationController
 
-	def index
-	 @projects = Project.all
-	end
+  def index
+  @q = Project.search(params[:q].try(:merge, m: 'or'))
+  @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
+  end
 
 	def show
-	 @project = Project.friendly.find params[:id]
+  @q = Project.search(params[:q])
+  @projects =  @q.result.includes(:albums).includes(:tracks)
+  @project = Project.includes(:albums).includes(:tracks).find params[:id]
+  @albums = @project.albums.all
+
 	end
 
 

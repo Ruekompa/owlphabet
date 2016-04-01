@@ -3,9 +3,11 @@ class Artist < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise   :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
-  belongs_to :project, polymorphic: true
-  belongs_to :albums, polymorphic: true
-  has_many :tracks, :through => :albums
+  has_many :credits
+  has_many :tracks, :through => :credits
+
+
+
  
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
@@ -14,4 +16,4 @@ class Artist < ActiveRecord::Base
     name_changed? || super
   end
 
-end
+end 

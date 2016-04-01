@@ -53,6 +53,16 @@ gem 'friendly_id', '~> 5.1.0'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'dropzonejs-rails'
+
+gem 'ransack'
+
+gem 'by_star', :git => "git://github.com/radar/by_star"
+
+gem	'chronic'
+
+gem	'will_paginate'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

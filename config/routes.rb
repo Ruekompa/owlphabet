@@ -10,11 +10,14 @@ Rails.application.routes.draw do
 
   resources :projects
 
-  resources :artists do
-    resources :projects do
-      resources :albums do
-        resources :tracks
+
+  resources :projects do
+     resources :albums do
+       resources :tracks
+         delete 'track', to: "tracks#delete_track"
+     end
+      collection do
+       match 'search' => 'projects#search', via: [:get, :post], as: :search
       end
-    end
   end
 end

@@ -18,14 +18,10 @@
         <a href="/" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
-        
-          <li style="padding-right: 1rem;" class="invite"><a class="waves-effect waves-light btn" href="/invite">Request Invite</a></li>
-
-        
+      <li><a style="font-weight: 400;" class="black-text" href="/projects">Projects</a></li>  
       </ul>
      <ul class="side-nav" id="mobile-nav">
-         <li><a style="font-weight: 400;" class="black-text" href="/#mission">Welcome</a></li>
-         <li><a style="font-weight: 400;" class="black-text" href="/#invite">Request Invite</a></li>
+         <li><a style="font-weight: 400;" class="black-text" href="/projects">Projects</a></li>
       </ul>
     </div>
   </nav>
@@ -38,5 +34,21 @@
 <main role="main">
 <%= yield %>
 </main>
+
+<footer style="padding-bottom: 0px;" class="page-footer blue-grey darken-3">
+           <div class="container">
+            <div class="row">
+             
+            </div>
+          </div>
+             <div class="footer-copyright blue-grey darken-4">
+            <div class="container center">
+            ©  <strong><%= Time.new.strftime("%Y") %> Owlphabet</strong>
+            </div>
+           </div>
+</footer>
+
+
+
 </body>
 </html>

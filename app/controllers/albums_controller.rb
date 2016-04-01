@@ -1,35 +1,35 @@
 class AlbumsController < ApplicationController
-	 before_action :artist_is_current_artist, except: [:index, :show]
+	 # before_action :artist_is_current_artist, except: [:index, :show]
 	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
 
 	def index
-    @artist = Artist.friendly.find params[:artist_id]
     @project = Project.friendly.find params[:project_id]
-	  @artist = Artist.friendly.find params[:artist_id]
 	  @albums = Album.friendly.reorder("release_date DESC")
+    @tracks = Track.all
+
 	end
 
 	def show
-	  @artist = Artist.friendly.find params[:artist_id]
     @project = Project.friendly.find params[:project_id]
-	  @album = Album.find params[:id]
+	  @album = Album.friendly.find params[:id]
+    @track = @album.tracks.build
 
 	end
 
   def new
-    @artist = Artist.friendly.find params[:artist_id]
-    @project = Project.friendly.find params[:project_id]
-	  @album = Album.new
+    @q = Project.search(params[:q])
+    @project = Project.find(params[:project_id])
+    @album = @project.albums.new()
   end
 
   def create
-    @artist = Artist.friendly.find params[:artist_id]
+    @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = Album.new(album_params)
 
   	  if @album.save 
         flash[:notice] = 'Album created'
-        redirect_to artist_project_albums_path
+        redirect_to project_albums_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
@@ -71,19 +71,16 @@ class AlbumsController < ApplicationController
 
     private
 
-     def set_album
-       @album = Album.find(params[:id])
-     end
 
-    def artist_is_current_artist
-      unless current_artist.friendly_id == params[:artist_id]
-       flash[:notice] = "You may only edit your own content."
-       redirect_to artist_albums_path
-      end
-    end
+    # def artist_is_current_artist
+    #   unless current_artist.friendly_id == params[:artist_id]
+    #    flash[:notice] = "You may only edit your own content."
+    #    redirect_to artist_albums_path
+    #   end
+    # end
       
     def album_params
-      params.require(:album).permit(:id, :artist_id, :project_id, :album_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list)
+      params.require(:album).permit(:id, :project_id, :title, :release_date, :cover_art, :remove_cover_art, :genre, :genre_list, :tag_list, :name, :song, :remove_song)
     end
 
 
