@@ -1,26 +1,27 @@
 class ProjectsController < ApplicationController
 
   def index
-  @q = Project.search(params[:q].try(:merge, m: 'or'))
-  @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
+    @q = Project.search(params[:q].try(:merge, m: 'or'))
+    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
   end
 
 	def show
-  @q = Project.search(params[:q])
-  @projects =  @q.result.includes(:albums).includes(:tracks)
-  @project = Project.includes(:albums).includes(:tracks).find params[:id]
-  @albums = @project.albums.all
-
+    @q = Project.search(params[:q])
+    @projects =  @q.result.includes(:albums)
+    @project = Project.includes(:albums).find params[:id]
+    @albums = @project.albums.all
 	end
 
 
-    def new
-     @project = Project.new 
-    end
+  def new
+    @q = Project.search(params[:q])
+    @projects =  @q.result.includes(:albums)
+    @project = Project.new 
+  end
 
 
-     def create
-      @project = Project.new(project_params)
+  def create
+    @project = Project.new(project_params)
 
   	  if @project.save 
         flash[:notice] = 'Album created'
@@ -32,12 +33,14 @@ class ProjectsController < ApplicationController
     end
 
  	def edit
+    @q = Project.search(params[:q])
+    @projects =  @q.result.includes(:albums)
 	  @project = Project.friendly.find params[:id]
 	end
 
 
-    def update
-      @project = Project.friendly.find params[:id]
+  def update
+    @project = Project.friendly.find params[:id]
       if @project.update_attributes project_params
         flash[:notice] = 'Profile has been updated'
         redirect_to projects_path
@@ -45,17 +48,17 @@ class ProjectsController < ApplicationController
         flash.now[:warning] = 'There were problems when trying to update this Profile'
         render :action => :edit
       end
-    end
+  end
 
-    def destroy
-  	  @project = Project.find params[:id]
+  def destroy
+    @project = Project.friendly.find params[:id]
       @project.destroy
       flash[:notice] = 'Project Obliterated'
       redirect_to :index
     end
 
     def set_project
-      @project = project.friendly.find(params[:artist_id])
+      @project = project.friendly.find(params[:project_id])
     end
 
 

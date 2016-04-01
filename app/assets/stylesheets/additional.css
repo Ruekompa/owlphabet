@@ -68,3 +68,7 @@ h1.album-title {
 h1.general-header {
     font-size: 3.2rem;
 }
+
+a.sort_link {
+    color: #000;
+}
