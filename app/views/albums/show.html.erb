@@ -5,22 +5,47 @@
  <div class="container albums white">
   <div class="row">
   <div class="col s12 m3 l3">
-  <img class="responsive-img materialboxed" src="<%= @album.cover_art_url %>">
+  <img class="responsive-img materialboxed" src="<%= @album.cover_art_url(:thumb) %>">
   </div>
     <div class="col s12 m9 l9">
  	<h1 class="album-title"><%= @album.title %></h1>
- 	  <% if @tracks == nil %>
-      <p>No Tracks Found</p>
-      <a href="/artists/<%= @artist.friendly_id %>/projects/<%= @project.friendly_id %>/albums/<%= @album.friendly_id %>/tracks/new" class="btn red">Add Tracks</a>
-      <% else %>
-      <% @track.each do |t| %>
- 	  <div class="collection">
- 	  <% t.split.each do |s|%>
- 	    <a href="#!" class="collection-item">s.title </a>
- 	     <% end %>
-      </div>
-      <% end %>
-      <% end %>
+
+      <%= form_tag 'tracks', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+          <div class="fallback">
+            <%= file_field_tag "name", multiple: true%>
+          </div>
+        <% end %>
+
+                <h4><b>Media</b></h4><hr>
+        <%= form_tag '/delete_track', method: :delete do %>
+          <div class="row">
+            <div class="col-lg-6">
+              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger" %>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div id="media-contents" class="col-lg-12">
+              <% if @tracks == nil %>
+                <h5 id="no-media">No Media Found</h5>
+              <% else %>
+                <% @tracks.each do |media| %>
+                  <div class="col s12 m4 l4">
+                    <div class="thumbnail">
+                      <%= @track.name %>
+                      <div class="caption">
+                        <p>
+                          <%= check_box_tag "tracks[]", track.id %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      
  	</div>
  	</div>
  	</div>

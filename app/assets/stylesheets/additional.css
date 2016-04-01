@@ -1,3 +1,29 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+  body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    min-height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+   flex: 1 0 auto;   
+  }
+
 nav ul li.invite:hover, nav ul li.invite.active {
      background-color: rgba(0, 0, 0, 0.1); 
 }
@@ -36,5 +62,9 @@ a.card-date {
 
 
 h1.album-title {
+    font-size: 3.2rem;
+}
+
+h1.general-header {
     font-size: 3.2rem;
 }

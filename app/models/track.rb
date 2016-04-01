@@ -1,7 +1,7 @@
 class Track < ActiveRecord::Base
-	belongs_to :artist
-	belongs_to :album, polymorphic: true
-	belongs_to :project, polymorphic: true
-
-	mount_uploaders :songs, SongUploader
+	has_many :credits
+	has_many :artists, :through => :credits
+	belongs_to :album
+	
+	mount_uploader :song, SongUploader
 end

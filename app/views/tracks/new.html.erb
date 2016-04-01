@@ -1,4 +1,4 @@
-<%= form_for [@artist, @project, @album, @track] do |f| %>
+<%= form_for [@project, @album, @track], html: { multipart: true }  do |f| %>
 <section class="section white">
 <div class="container">
 <h2>New Tracks</h2>      

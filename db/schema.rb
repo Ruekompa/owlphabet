@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328221458) do
+ActiveRecord::Schema.define(version: 20160331110658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,11 @@ ActiveRecord::Schema.define(version: 20160328221458) do
     t.string   "cover_art"
     t.string   "slug"
     t.integer  "artist_id"
+    t.integer  "project_id"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id", using: :btree
+  add_index "albums", ["project_id"], name: "index_albums_on_project_id", using: :btree
 
   create_table "artists", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -51,6 +53,12 @@ ActiveRecord::Schema.define(version: 20160328221458) do
   add_index "artists", ["project_id"], name: "index_artists_on_project_id", using: :btree
   add_index "artists", ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true, using: :btree
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
+
+  create_table "credits", force: :cascade do |t|
+    t.text     "artist_ids", default: [],              array: true
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -122,6 +130,7 @@ ActiveRecord::Schema.define(version: 20160328221458) do
   add_index "tracks", ["artist_id"], name: "index_tracks_on_artist_id", using: :btree
 
   add_foreign_key "albums", "artists"
+  add_foreign_key "albums", "projects"
   add_foreign_key "artists", "projects"
   add_foreign_key "projects", "artists"
 end

@@ -1,7 +1,9 @@
 class TracksController < ApplicationController
 
   def index
-    @track = Track.all
+    @project = Project.find(params[:project_id])
+    @tracks = Track.all
+    @track = Track.new
   end
 
   def show
@@ -13,29 +15,33 @@ class TracksController < ApplicationController
 
 	def new
     @project = Project.friendly.find params[:project_id]
-    @artist = Artist.friendly.find params[:artist_id]
+    @artist = current_artist.friendly_id
     @album = Album.friendly.find params[:album_id]
 	  @track = Track.new
 	end
 
-	def create
-      @project = Project.friendly.find params[:project_id]
-      @artist = Artist.friendly.find params[:artist_id]
-      @album = Album.friendly.find params[:album_id]
-      @track = Track.new(track_params)
+  def create
+    @project = Project.friendly.find params[:project_id]
+    @artist = current_artist.friendly_id
+    @album = Album.friendly.find params[:album_id]
+    @track = Track.new(name: params[:file].original_filename)
 
-  	  if @track.save 
-        flash[:notice] = 'Album created'
-        redirect_to :artist_project_album_path
-      else
-        flash.now[:warning] = 'There were problems when trying to create a new Artist'
-        render :action => :new
+    if @track.save!
+      respond_to do |format|
+        format.json{ render :json => @track }
       end
     end
+  end
+
+def delete_track
+  Track.where(id: params[:file]).destroy_all
+  redirect_to root_url
+end
+
 
 	 private
       
     def track_params
-      params.require(:track).permit(:id, :artist_id, :album_id, :name, {songs: []})
+      params.require(:track).permit(:id, :artist_id, :album_id, :name, :song, :remove_song)
     end
 end

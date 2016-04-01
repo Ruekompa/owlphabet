@@ -1,4 +1,4 @@
- <%= form_for [@artist, @project, @album] do |f| %>
+ <%= form_for [@project, @album] do |f| %>
 <section class="section white">
 <div class="container">
 <h2>New Album</h2>
@@ -28,8 +28,9 @@
            </div>
            <div class="row">
              <div class="input-field col s12">
+                 <label for="title">Title</label>
             <%= f.text_field :title, :class => "validate", :type => "text" %>
-             <label for="title">Title</label>
+            <%= f.hidden_field :project_id %>
             </div>
             </div>
         
@@ -41,7 +42,12 @@
             </p>
           </div>
           </div>
-          </div>
+
+
+
+
+
+
             <div class="card-action">
               <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
             </div>
