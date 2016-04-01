@@ -16,8 +16,6 @@ Rails.application.routes.draw do
        resources :tracks
          delete 'track', to: "tracks#delete_track"
      end
-      collection do
-       match 'search' => 'projects#search', via: [:get, :post], as: :search
-      end
+      
   end
 end
