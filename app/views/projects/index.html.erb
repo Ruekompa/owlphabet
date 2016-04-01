@@ -1,9 +1,14 @@
 
-<div class="section artwork">
-<div class="row">
+<div class="section albums">
+
 <div class="container">
-<h1 class="general-header">Projects</h1>
-    <div class="col s12 m12 l10"> 
+<div class="row">
+
+<div class="right">
+<%= sort_link(@q, :title, [:title, 'title asc'], '<i class="material-icons black-text">sort_by_alpha</i>'.html_safe) %>
+</div>
+</div>
+
     <% @projects.each_slice(4) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
@@ -19,13 +24,11 @@
        </div>
       </div>
          <% end %>
-         </div>
+    </div>
          <% end %>
-         <div class="center-align">
-  
-        </div>
-      </div>
+    
+
    </div>
-   </div>
+
  </div>
 
