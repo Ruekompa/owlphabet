@@ -271,6 +271,9 @@ GEM
     orm_adapter (0.5.0)
     os (0.9.6)
     pg (0.18.4)
+    pjax_rails (0.4.0)
+      jquery-rails
+      railties (>= 3.2, < 5.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
     puma (3.2.0)
@@ -386,6 +389,7 @@ DEPENDENCIES
   mini_magick
   net-ssh
   pg
+  pjax_rails
   puma
   rails (= 4.2.4)
   ransack

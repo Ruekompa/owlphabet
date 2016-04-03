@@ -56,6 +56,8 @@ gem	'chronic'
 
 gem	'will_paginate'
 
+gem 'pjax_rails'
+
 
 
 group :development, :test do

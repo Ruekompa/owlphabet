@@ -16,6 +16,7 @@
 //= require dropzone
 //= require soundmanager2
 //= require bar-ui
+//=require jquery.pjax
 //= require_tree .
 
 
@@ -53,6 +54,10 @@ $(document).ready(function () {
   ];
   Materialize.scrollFire(options);
 
+});
+
+$(function() {
+  $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
 });
 
 
