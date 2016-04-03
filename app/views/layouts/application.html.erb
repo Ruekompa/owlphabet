@@ -7,7 +7,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body class="grey lighten-3">
@@ -15,12 +15,13 @@
 <div id="top" class="navbar-fixed">
 <nav>
     <div class="nav-wrapper white">
-        <a href="/" class="brand-logo black-text">OWLPHABET</a>
+        <a href="/projects" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
       <li><a style="font-weight: 400;" class="black-text" href="/projects">Projects</a></li>  
       <li>
-  <%= search_form_for @q do |f| %>
+
+  <%= search_form_for @q, html: { method: :get, id: 'search_filter', 'data-skip-pjax' => true } do |f| %>
         <div class="input-field">
           <%= f.search_field :title_cont %>
           <label for="search"><i class="material-icons black-text search">search</i></label>
@@ -43,7 +44,7 @@
   <% end %>
 <main role="main">
 
-  <div data-pjax-container>
+<div data-pjax-container>
 <%= yield %>
 </div>
 </main>
@@ -159,8 +160,9 @@
      <!-- standard one-line items -->
 
 <% Track.all.each do |a| %>
-<li><%= link_to a.file_name, a.file_name.url %></li>
-   <% end %>    
+<li><%= link_to a.file_name, a.file_name.url, 'data-skip-pjax' => true %></li>
+<% end %>
+
     </ul>
   
   </div>
@@ -168,5 +170,8 @@
  </div>
 
 </div>
+<script type="text/javascript">
+  
+</script>
  </body>
 </html>
