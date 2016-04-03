@@ -49,7 +49,7 @@ a#brandMobile {
 
 h2.groupings-list {
     font-size: 2rem;
-}
+} 
 
 a.card-date {
 	color: #616161;
@@ -70,5 +70,16 @@ h1.general-header {
 }
 
 a.sort_link {
-    color: #000;
+    color: #b71c1c !important;
+}
+
+.sm2-bar-ui {
+ font-size: 16px !important;
+}
+.sm2-bar-ui .sm2-main-controls,
+.sm2-bar-ui .sm2-playlist-drawer {
+ background-color: #b71c1c !important;
+}
+.sm2-bar-ui .sm2-inline-texture {
+ background: transparent !important;
 }

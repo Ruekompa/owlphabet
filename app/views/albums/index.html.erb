@@ -5,11 +5,26 @@
     <% @albums.each_slice(4) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
+          <div class="col s12 m4 l4">
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+       <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), project_album_path(@project.friendly_id, g.friendly_id) %>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %><i class="material-icons right">more_vert</i></span>
+      <p><a href="#" class="card-date"><%= release_date.strftime("%Y") %></a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Firework Child<i class="material-icons right">close</i></span>
+      <p>View Project</p>
+    </div>
+   </div>
+  </div>
     <div class="col s12 m4">
 	   <div class="card large">
         <div class="card-image waves-effect waves-block waves-light">
        <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), project_album_path(@project.friendly_id, g.friendly_id) %>
-
+ 
         </div>
         <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"> <%= g.title.titleize %></span>

@@ -1,5 +1,45 @@
-<% @tracks.each do |t| %>
-<ul>
-<li><%= t.name %></li>
-</ul>
+<%= form_for [@project, @album, @track], url: {action: "create"}, html: {class: "dropzone", id: "media-dropzone"} do |f| %>
+  <div class="fallback">
+    <%= file_field :name, multiple: true %>
+    <%= hidden_field :project_id, multiple: true %>
+    <%= hidden_field :album_id, multiple: true %>
+
+  </div>
 <% end %>
+
+<div class="row">
+    <div class="col s12">
+      <div class="card-panel">
+        <h4><b>Media</b></h4><hr>
+        <%= form_tag '/delete_media', method: :delete do %>
+          <div class="row">
+            <div class="col s6">
+              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div id="media-contents" class="col s12">
+              <% if @tracks.empty? %>
+                <h5 id="no-media">No Media Found</h5>
+              <% else %>
+                <% @tracks.each do |media| %>
+                  <div class="col s12">
+                    <div class="thumbnail">
+                      <%= media.file_name.url %>
+                      <div class="caption">
+                        <p>
+                          <%= check_box_tag "tracks[]", media.id %>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+</div>
