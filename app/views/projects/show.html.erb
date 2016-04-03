@@ -32,15 +32,12 @@
           </div>
 
           <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %><i class="material-icons right">more_vert</i></span>
-          <p><a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></p>
+          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %>  <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">play_arrow</i></a></span>
+          <p><span></a>
+          <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></span></p>
+
           </div>
-    		<div class="card-reveal">
-     		 <span class="card-title grey-text text-darken-4"><%= @project.title %>
-     		 <i class="material-icons right">close</i></span>
-     		 
-     		 <p><%= g.title.titleize %></p>
-   			 </div>
+
           </div>
          </div>
      <% end %>
