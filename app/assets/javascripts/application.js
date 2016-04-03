@@ -14,6 +14,8 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require dropzone
+//= require soundmanager2
+//= require bar-ui
 //= require_tree .
 
 

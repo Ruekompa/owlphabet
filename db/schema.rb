@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331110658) do
+ActiveRecord::Schema.define(version: 20160402204315) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,12 @@ ActiveRecord::Schema.define(version: 20160331110658) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
+  create_table "media", force: :cascade do |t|
+    t.string   "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
@@ -122,15 +128,17 @@ ActiveRecord::Schema.define(version: 20160331110658) do
     t.datetime "updated_at", null: false
     t.string   "artist_id"
     t.string   "album_id"
-    t.json     "songs"
-    t.string   "song"
+    t.string   "file_name"
+    t.integer  "project_id"
   end
 
   add_index "tracks", ["album_id"], name: "index_tracks_on_album_id", using: :btree
   add_index "tracks", ["artist_id"], name: "index_tracks_on_artist_id", using: :btree
+  add_index "tracks", ["project_id"], name: "index_tracks_on_project_id", using: :btree
 
   add_foreign_key "albums", "artists"
   add_foreign_key "albums", "projects"
   add_foreign_key "artists", "projects"
   add_foreign_key "projects", "artists"
+  add_foreign_key "tracks", "projects"
 end

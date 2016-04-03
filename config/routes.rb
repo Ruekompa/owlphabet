@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   resources :projects do
      resources :albums do
-       resources :tracks
-         delete 'track', to: "tracks#delete_track"
+       resources :tracks do
+         resources :songs, only: [:create]
      end
-      
+    end
   end
 end

@@ -5,16 +5,17 @@ class AlbumsController < ApplicationController
 	def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
-	  @albums = Album.friendly.reorder("release_date DESC")
-    @tracks = Track.all
+	  @project = Project.friendly.find params[:project_id]
+    @albums = @project.albums.all
+    @tracks = @album.tracks.all
 	end
 
 	def show
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
     @project = Project.friendly.find params[:project_id]
-	  @album = Album.friendly.find params[:id]
-    @track = @album.tracks.build
+	  @album = Album.find params[:id]
+    @tracks = @album.tracks
 
 	end
 

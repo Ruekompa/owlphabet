@@ -1,9 +1,14 @@
 class TracksController < ApplicationController
 
   def index
-    @project = Project.find(params[:project_id])
-    @tracks = Track.all
-    @track = Track.new
+    @q = Project.search(params[:q].try(:merge, m: 'or'))
+    @artist = current_artist.friendly_id
+    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
+    @project = Project.friendly.find(params[:project_id])
+    @album = @project.albums.friendly.find params[:album_id]
+    @tracks = @album.tracks.all
+    @track = @album.tracks.new
+
   end
 
   def show
@@ -14,18 +19,17 @@ class TracksController < ApplicationController
   end
 
 	def new
-    @project = Project.friendly.find params[:project_id]
     @artist = current_artist.friendly_id
+    @project = Project.friendly.find params[:project_id]
     @album = Album.friendly.find params[:album_id]
-	  @track = Track.new
+	  @track = @albums.tracks.new
 	end
 
   def create
-    @project = Project.friendly.find params[:project_id]
     @artist = current_artist.friendly_id
-    @album = Album.friendly.find params[:album_id]
-    @track = Track.new(name: params[:file].original_filename)
-
+    @project = Project.friendly.find params[:project_id]
+    @album = @project.albums.friendly.find params[:album_id]
+    @track = @album.tracks.new(file_name: params[:file])
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
@@ -42,6 +46,6 @@ end
 	 private
       
     def track_params
-      params.require(:track).permit(:id, :artist_id, :album_id, :name, :song, :remove_song)
+      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name)
     end
 end
