@@ -123,3 +123,7 @@ h1.album-title {
     height: 35px !important;
     background: url("/social/tw.png") no-repeat !important;
 }
+
+h1.project-show-title {
+    margin-top: -32px;
+}

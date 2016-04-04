@@ -5,16 +5,16 @@
 
 <div class="container albums white">
   <div class="row">
-    <div class="col s12">
-    <div class="fixed-action-btn horizontal click-to-toggle">
+  <div class="fixed-action-btn horizontal click-to-toggle">
    <a class="btn-floating btn-large waves-effect waves-light blue-grey lighten-5 right share-project-show"><i class="material-icons black-text">share</i></a>
-
    <ul>
-  <%= social_share_button_tag(@project.title, :popup => "true") %>
+  <li><%= social_share_button_tag(@project.title, :popup => "true") %></li>
     </ul>
    </div>
- 	<h1 class="project-show-title center"><%= @project.title %></h1>
- 
+    <div class="col s12">
+   <div class="center">
+ 	<h1 class="project-show-title"><%= @project.title %></h1>
+ 	</div>
     </div>
   </div>
 </div>
