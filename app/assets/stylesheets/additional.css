@@ -79,7 +79,16 @@ a.sort_link {
 .sm2-bar-ui .sm2-main-controls,
 .sm2-bar-ui .sm2-playlist-drawer {
  background-color: #b71c1c !important;
+ height: 64px;
 }
 .sm2-bar-ui .sm2-inline-texture {
  background: transparent !important;
+}
+
+a.btn-floating.btn-large.waves-effect.waves-light.red.right.show-play-album {
+    margin-right: 1rem;
+}
+
+h1.album-title {
+    margin-bottom: 1rem;
 }
