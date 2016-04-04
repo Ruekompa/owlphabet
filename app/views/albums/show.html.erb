@@ -10,7 +10,7 @@
     <div class="col s12 m9 l9">
     <div class="show-album-header">
     <a class="btn-floating btn-large waves-effect waves-light red right show-play-album"><i class="material-icons">play_arrow</i></a>
- 	<span><h1 class="album-title"><%= @album.title %></h1> <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= @album.release_date.strftime("%Y") %></a> </span>
+ 	<span><h1 class="album-title"><%= @album.title %></h1> <a href="/projects/<%= @project.friendly_id %>" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= @album.release_date.strftime("%Y") %></a> </span>
 
 
    </div>

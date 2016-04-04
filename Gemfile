@@ -58,6 +58,8 @@ gem	'will_paginate'
 
 gem 'pjax_rails'
 
+gem 'social-share-button'
+
 
 
 group :development, :test do

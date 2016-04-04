@@ -17,6 +17,7 @@
 //= require soundmanager2
 //= require bar-ui
 //=require jquery.pjax
+//=require social-share-button
 //= require_tree .
 
 
