@@ -17,42 +17,50 @@
           </div>
        </div>
 
-
-      <div class="card-panel">
+<div class="card-panel">
          <% if @tracks.empty? %>
-             <div class="row">
-                  <div class="col s12">
+           
                 <h5 id="no-media">No Media Found</h5>
-                </div>
-              </div>
-              <% else %>
-         <div id="media-contents">
-       
+         
          <table class="highlight edit-tracks-index">
         <thead>
           <tr>
               <th data-field="id">#</th>
               <th data-field="name">Title</th>
-              <th data-field="price">Delete</th>
+              <th data-field="price"></th>
           </tr>
         </thead>
+        <tbody id="media-contents">
+      
+              </tbody>
+           </table>
+           </div>
+      <% else %>
 
+    
+       <table class="highlight edit-tracks-index">
+      <thead>
+          <tr>
+              <th data-field="id">#</th>
+              <th data-field="name">Title</th>
+              <th data-field="price"></th>
+          </tr>
+        </thead>
+         <tbody id="media-contents">
           <% @tracks.each do |media| %>
    
-         <tbody>
           <tr>
             <td>2</td>
-            <td>  <%= media.file_name.url %> </td>
+            <td> <%= media.file_name.url %> </td>
             <td><p><%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
                   <label for="<%= media.id %>">Delete</label></p></td>
-           </tr>      
+           </tr>     
                <% end %>
+                  
                  </tbody>
                 </table>
-                </div>
               <% end %>
-            </div>
-          </div>
+              </div>
        <% end %>
       </div>
     </div>
@@ -101,9 +109,9 @@ $(function() {
 });
 
 var appendContent = function(trackUrl, trackId) {
-  $("#media-contents").append('<div class="col row">' + 
-    '<ul class="collection">' + '<li class="collection-item"/>' + trackUrl);
+  $("#media-contents").append('<tr>' + 
+    '<td>' + '2' + '</td>' + '<td>' + trackUrl + '</td>' + '<td>' + '<i class="material-icons teal-text">check_circle</i>' + '</td>' + '</tr>');
   $("#delete").removeAttr('disabled');
-  $("#no-media").html("");
+  $("#no-media").remove();
 };
 </script>
