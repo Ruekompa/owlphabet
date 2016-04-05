@@ -1,20 +1,12 @@
-<%= form_for [@project, @album, @track], url: {action: "create"}, html: {class: "dropzone", id: "media-dropzone"} do |f| %>
-  <div class="fallback">
-    <%= file_field :name, multiple: true %>
-    <%= hidden_field :project_id, multiple: true %>
-    <%= hidden_field :album_id, multiple: true %>
-
-  </div>
-<% end %>
-
-<div class="row">
+<div class="section grey lighten-3">
     <div class="col s12">
       <div class="card-panel">
         <h4><b>Media</b></h4><hr>
         <%= form_tag '/delete_media', method: :delete do %>
           <div class="row">
-            <div class="col s6">
-              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %>
+            <div class="col s6"><span>
+            <button data-target="modal1" class="btn modal-trigger">Upload</button>
+              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %></span>
             </div>
           </div>
           <br>
@@ -25,13 +17,12 @@
               <% else %>
                 <% @tracks.each do |media| %>
                   <div class="col s12">
-                    <div class="thumbnail">
-                      <%= media.file_name.url %>
-                      <div class="caption">
-                        <p>
-                          <%= check_box_tag "tracks[]", media.id %>
-                        </p>
-                      </div>
+           <span> <%= media.file_name.url %> <p>
+      <%= check_box_tag "tracks[]", media.id %>
+      <label for="tracks_">Delete</label>
+    </p></span>
+                    
+                          
                     </div>
                   </div>
                 <% end %>
@@ -43,3 +34,53 @@
     </div>
   </div>  
 </div>
+
+
+<!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Track Upload</h4>
+    <%= form_for [@project, @album, @track], url: {action: "create"}, html: {class: "dropzone", id: "media-dropzone"} do |f| %>
+      <%= hidden_field :project_id, multiple: true %>
+    <%= hidden_field :album_id, multiple: true %>
+  <div class="fallback">
+    <%= file_field :file_name, multiple: true %>
+    <%= hidden_field :project_id, multiple: true %>
+    <%= hidden_field :album_id, multiple: true %>
+
+  </div>
+<% end %> 
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+    </div>
+  </div>
+
+<script type="text/javascript">
+	  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+  });
+</script>
+
+<script type="text/javascript">
+$(function() {
+  var mediaDropzone;
+  mediaDropzone = new Dropzone("#media-dropzone");
+  return mediaDropzone.on("success", function(file, responseText) {
+    var _this = this;
+    appendContent(responseText.file_name.url, responseText.id);
+    $(function(){
+     $('#modal1').closeModal();
+     $('div.lean-overlay').remove();
+    });
+  });
+});
+
+var appendContent = function(trackUrl, trackId) {
+  $("#media-contents").append('<div class="col row">' + 
+    '<ul class="collection">' + '<li class="collection-item"/>' + trackUrl);
+  $("#delete").removeAttr('disabled');
+  $("#no-media").html("");
+};
+</script>

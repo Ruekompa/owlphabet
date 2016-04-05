@@ -12,9 +12,9 @@ class TracksController < ApplicationController
   end
 
   def show
+    @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
-    @artist = Artist.friendly.find params[:artist_id]
-    @album = Album.friendly.find params[:album_id]
+    @album = @project.albums.friendly.find params[:album_id]
     @track = Track.find params[:id]
   end
 
@@ -39,7 +39,7 @@ class TracksController < ApplicationController
 
 def delete_track
   Track.where(id: params[:file]).destroy_all
-  redirect_to root_url
+  redirect_to :back
 end
 
 

@@ -17,9 +17,6 @@ Rails.application.routes.draw do
          resources :songs, only: [:create]
      end
     end
-    collection do
-       match 'search' => 'projects#search', via: [:get, :post], as: :search
-      end
   end
 
 end

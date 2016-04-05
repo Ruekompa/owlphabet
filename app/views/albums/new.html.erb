@@ -1,5 +1,5 @@
  <%= form_for [@project, @album] do |f| %>
-<section class="section white">
+<div class="section grey lighten-3">
 <div class="container">
 <h2>New Album</h2>
         <div class="col s12 m12">
@@ -9,11 +9,12 @@
              <div class="col s12 m6">
               
              <%= image_tag(@album.cover_art_url, :class => "responsive-img") if @album.cover_art? %>
+
              </div>
              </div>
              <div class="row">
             
-               <div class="file-field input-field">
+              <div class="file-field col s12 m6">
                  <div class="btn red accent-2">
                  <span>Album Cover</span>
                 <%= f.file_field :cover_art %>
@@ -49,14 +50,17 @@
 
 
             <div class="card-action">
+             
               <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
             </div>
-          </div>
-      
-        </div>
+          
+       </div>
+       </div>
       </div>
-      <% end %>
-</div>
-</section>
+    </div>
+ </div>
+
+ <% end %>
+
 
 
