@@ -60,6 +60,8 @@ gem 'pjax_rails'
 
 gem 'social-share-button'
 
+gem 'ranked-model'
+
 
 
 group :development, :test do

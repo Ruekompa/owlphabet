@@ -34,7 +34,7 @@
  	</div>
  	</div>
 <% else %>
- 
+ <h1 class="general-header"></h1>
 <div class="section white artwork">
     <% @albums.each_slice(4) do |slice| %> 
         <div class="row">
@@ -47,7 +47,13 @@
           </div>
 
           <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %>  <a class="btn-floating btn-large waves-effect waves-light red right"><i class="material-icons">play_arrow</i></a></span>
+          <div style="padding: 0;" class="col s12 m9 l10">
+          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %>  
+          </span>
+          </div>
+          <div style="padding: 0;" class="col s12 m3 l2">
+          <span>
+          <a class="btn-floating waves-effect waves-light red right"><i class="material-icons">play_arrow</i></a></span></div>
           <p><span>
           <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></span></p>
 

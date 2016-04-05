@@ -32,7 +32,7 @@ class AlbumsController < ApplicationController
 
   	  if @album.save 
         flash[:notice] = 'Album created'
-        redirect_to project_albums_path
+        redirect_to album_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
@@ -40,18 +40,24 @@ class AlbumsController < ApplicationController
   end
 
  	def edit
- 	  @artist = Artist.friendly.find params[:artist_id]
-	  @album = Album.find params[:id]
+    @q = Project.search(params[:q].try(:merge, m: 'or'))
+    @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
+    @project = Project.friendly.find params[:project_id]
+    @album = Album.find params[:id]
+    @tracks = @album.tracks
 	end
 
 
     def update
-      @artist = Artist.friendly.find params[:artist_id]
-      @album = Album.find params[:id]
+   @q = Project.search(params[:q].try(:merge, m: 'or'))
+    @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
+    @project = Project.friendly.find params[:project_id]
+    @album = Album.find params[:id]
+    @tracks = @album.tracks
     
       if @album.update_attributes album_params
         flash[:notice] = 'Profile has been updated'
-        redirect_to artist_albums_path
+        redirect_to project_album_path
       else
         flash.now[:warning] = 'There were problems when trying to update this Profile'
         render :action => :edit

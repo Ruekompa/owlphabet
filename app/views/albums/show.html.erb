@@ -1,6 +1,7 @@
  <div class="parallax-container">
     <div class="parallax"><img class="project-header" src="<%= @project.cover_photo_url %>"></div>
  </div>
+
  <div class="section grey lighten-3">
  <div class="container albums white">
   <div class="row">
@@ -9,30 +10,33 @@
   </div>
     <div class="col s12 m9 l9">
     <div class="show-album-header">
-    <a class="btn-floating btn-large waves-effect waves-light red right show-play-album"><i class="material-icons">play_arrow</i></a>
- 	<span><h1 class="album-title"><%= @album.title %></h1> <a href="/projects/<%= @project.friendly_id %>" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= @album.release_date.strftime("%Y") %></a> </span>
+    <a class="btn-floating btn-large waves-effect waves-light red right show-play-album">
+    <i class="material-icons">play_arrow</i></a>
+ 	<span><h1 class="album-title"><%= @album.title %></h1> 
+  <a href="/projects/<%= @project.friendly_id %>" class="card-date black-text">
+  <%= @project.title %></a><br>
+  <a href="#" class="card-date"> <%= pluralize(@album.tracks.count, 'Song') %></a> &#8226; 
+  <a href="#" class="card-date">
+  <%= @album.release_date.strftime("%Y") %></a> 
+  </span>
+</div>
+</div>
+</div>
 
+<% if @tracks.empty?  %>
+ <h5 id="no-media">No Media Found</h5>
+<% else %>
 
-   </div>
-<hr>
-              <% if @tracks.empty?  %>
-                <h5 id="no-media">No Media Found</h5>
-              <% else %>
-
-              <div class="row">
-                 <div class="col s12">
-                     <div class="collection">
-                <% @tracks.each do |media| %>
-               
-                
-                      <%= link_to "#{media.file_name}", media.file_name.url, class: "collection-item" %>
-             
-                 
+<div class="row">
+  <div class="col s12">
+   <div class="collection">
+    <% @tracks.each do |media| %>            
+            <%= link_to "#{media.file_name}", media.file_name.url, class: "collection-item" %>
                 <% end %>
-                </div>
-                </div>
-                </div>
-              <% end %>
+    </div>
+    </div>
+   </div>
+<% end %>
        
  	</div>
  	</div>
