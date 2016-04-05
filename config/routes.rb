@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :projects do
      resources :albums do
+       delete 'delete_media', to: "tracks#delete_media"
        resources :tracks do
          resources :songs, only: [:create]
      end
