@@ -1,42 +1,63 @@
 <div class="section grey lighten-3">
+ <div class="container">
+  <div class="card-panel">
+   <div class="row">
     <div class="col s12">
-      <div class="card-panel">
-        <h4><b>Media</b></h4><hr>
-        <%= form_tag project_album_delete_media_path, method: :delete do %>
-          <div class="row">
-            <div class="col s6"><span>
+        <h4>Manage Tracks</h4><hr>
+      </div>
+     </div>
+   <%= form_tag project_album_delete_media_path, method: :delete do %>
+      <div class="row">
+        <div class="col s12">
+           <span>
             <button data-target="modal1" class="btn modal-trigger">Upload</button>
-              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %></span>
+              <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %>
+              </span>
             </div>
           </div>
-          <br>
-          <div class="row">
-            <div id="media-contents" class="col s12">
-              <% if @tracks.empty? %>
-                <h5 id="no-media">No Media Found</h5>
-              <% else %>
-                <% @tracks.each do |media| %>
+       </div>
+
+
+      <div class="card-panel">
+         <% if @tracks.empty? %>
+             <div class="row">
                   <div class="col s12">
-                  <ul class="collection">
-          <%= media.file_name.url %> 
-        <p>
-      <%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
-      <label for="<%= media.id %>">Delete</label>
-      </p>
-                    
-                          
-                    </div>
-                  </div>
-                <% end %>
+                <h5 id="no-media">No Media Found</h5>
+                </div>
+              </div>
+              <% else %>
+         <div id="media-contents">
+       
+         <table class="highlight edit-tracks-index">
+        <thead>
+          <tr>
+              <th data-field="id">#</th>
+              <th data-field="name">Title</th>
+              <th data-field="price">Delete</th>
+          </tr>
+        </thead>
+
+          <% @tracks.each do |media| %>
+   
+         <tbody>
+          <tr>
+            <td>2</td>
+            <td>  <%= media.file_name.url %> </td>
+            <td><p><%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
+                  <label for="<%= media.id %>">Delete</label></p></td>
+           </tr>      
+               <% end %>
+                 </tbody>
+                </table>
+                </div>
               <% end %>
             </div>
           </div>
-        <% end %>
+       <% end %>
       </div>
     </div>
-  </div>  
-</div>
 
+ 
 
 <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
