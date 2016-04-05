@@ -37,15 +37,19 @@ class TracksController < ApplicationController
     end
   end
 
-def delete_track
-  Track.where(id: params[:file]).destroy_all
-  redirect_to :back
-end
-
+  def delete_media
+    @artist = current_artist.friendly_id
+    @project = Project.friendly.find params[:project_id]
+    @album = @project.albums.friendly.find params[:album_id]
+    Track.where(id: params[:tracks]).destroy_all
+      flash[:notice] = 'Song Track Trashed'
+      redirect_to :back
+  end
+  
 
 	 private
       
     def track_params
-      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name)
+      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media)
     end
 end

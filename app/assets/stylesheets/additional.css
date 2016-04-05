@@ -146,3 +146,7 @@ h1.project-show-title {
 div#materialize-lean-overlay-1 {
     opacity: 0 !important;
 }
+
+.alert.alert-notice {
+    background-color: #009688;
+}
