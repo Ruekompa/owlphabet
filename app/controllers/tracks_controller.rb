@@ -29,7 +29,7 @@ class TracksController < ApplicationController
     @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = @project.albums.friendly.find params[:album_id]
-    @track = @album.tracks.new(file_name: params[:file])
+    @track = @album.tracks.new({ :file_name => params[:file], :name => params[:file].original_filename.split(".")[0].titleize })
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
@@ -50,6 +50,6 @@ class TracksController < ApplicationController
 	 private
       
     def track_params
-      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media)
+      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media, :row_order_position)
     end
 end
