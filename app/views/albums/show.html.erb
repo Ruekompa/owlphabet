@@ -31,7 +31,7 @@
   <div class="col s12">
    <div class="collection">
     <% @tracks.each do |media| %>            
-            <%= link_to "#{media.file_name}", media.file_name.url, class: "collection-item" %>
+            <%= link_to "#{media.name}", media.file_name.url, class: "collection-item flow-text" %>
                 <% end %>
     </div>
     </div>

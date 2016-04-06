@@ -65,6 +65,11 @@ h1.album-title {
     font-size: 3.2rem;
 }
 
+.show-album-header {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
 h1.general-header {
     font-size: 3.2rem;
 }
@@ -72,6 +77,15 @@ h1.general-header {
 a.sort_link {
     color: #b71c1c !important;
 }
+
+
+.collection a.collection-item {
+    display: block;
+    transition: .25s;
+    color: #2d2d2d;
+}
+
+/*Song Player*/
 
 .sm2-bar-ui {
  font-size: 16px !important;
@@ -85,9 +99,6 @@ a.sort_link {
  background: transparent !important;
 }
 
-a.btn-floating.btn-large.waves-effect.waves-light.red.right.show-play-album {
-    margin-right: 1rem;
-}
 
 h1.album-title {
     margin-bottom: 1rem;

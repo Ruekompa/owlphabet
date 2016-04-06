@@ -50,3 +50,8 @@ a.brand-logo.black-text {
 }
 }
 
+@media #{$medium-and-up} {
+.flow-text {
+    font-size: 1.3rem;
+}
+}

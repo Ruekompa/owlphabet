@@ -3,11 +3,10 @@ class AlbumsController < ApplicationController
 	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
 
 	def index
-    @q = Project.search(params[:q].try(:merge, m: 'or'))
-    @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
-	  @project = Project.friendly.find params[:project_id]
+    @q = Project.search(params[:q])
+    @projects =  @q.result.includes(:albums)
+    @project = Project.friendly.find params[:project_id]
     @albums = @project.albums.all
-    @tracks = @album.tracks.all
 	end
 
 	def show

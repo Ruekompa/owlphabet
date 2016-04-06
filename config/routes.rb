@@ -15,6 +15,7 @@ Rails.application.routes.draw do
      resources :albums do
        delete 'delete_media', to: "tracks#delete_media"
        resources :tracks do
+        get '/songs/:id/:basename.:extension' => 'tracks#download' 
          resources :songs, only: [:create]
      end
     end
