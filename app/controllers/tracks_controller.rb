@@ -46,6 +46,12 @@ class TracksController < ApplicationController
       redirect_to :back
   end
   
+def download
+  @track = Track.find params[:id]
+  path = "/#{track.file_name}"
+  send_file @track.mv_link.path, x_sendfile: true
+end
+
 
 	 private
       
