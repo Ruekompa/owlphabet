@@ -165,3 +165,8 @@ div#materialize-lean-overlay-1 {
 div#materialize-lean-overlay-1 {
     visibility: hidden;
 }
+
+.alert.alert-alert {
+    background-color: #D32F2F;
+    color: white;
+}
