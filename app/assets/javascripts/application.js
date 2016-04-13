@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize-sprockets
+//= require modernizr-custom
 //= require dropzone
 //= require soundmanager2
 //= require bar-ui
