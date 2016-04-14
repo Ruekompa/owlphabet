@@ -6,6 +6,10 @@ class InviteRequestsController < ApplicationController
 	 @contact = Contact.new
 	end
 
+	def user_invite
+	 @contact = Contact.new
+	end
+
 
 	def select
 		
