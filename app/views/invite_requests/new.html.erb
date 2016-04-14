@@ -1,0 +1,78 @@
+<div class="section">
+<div class="container">
+<div class="row">
+<div class="col s12">
+   <h2 class="section-text center-align white-text" style="font-weight: 100;">Artist Invitation</h2>
+          <p class="flow-text center-align white-text">Share a little about your project or projects.</p> 
+</div>
+</div>
+    <div class="row">
+       <div class="col s12 m12 contact">
+       <div class="card-panel white">     
+       <div class="row">
+  <div class="col s12">
+  <div class="circle grey lighten-3" style="height: 164px; width: 164px; float: left; position: relative; left: calc(50% - 6.5rem);">
+    <i class="material-icons large valign grey-text" style="float: left;
+    position: relative;
+    top: calc(50% - 47px);
+    left: calc(50% - 47px);">music_note</i>
+    </div>
+    </div>
+    </div>
+          <%= form_for @contact, validate: true do |f| %>
+          <div class="row">
+          <div class="input-field col s12">
+            <label class="active" for="name">Name</label>
+             <%= f.text_field :name, :id => "name", :class => "validate", :type => "text" %>
+          </div>
+          </div>
+         <div class="row">
+         <div class="input-field col s12">
+          <label class="active" for="email">Email</label>
+          <%= f.text_field :email, :id => "email", :class => "validate", :type => "text" %>
+         </div>
+         </div>
+          <div class="row">
+         <div class="input-field col s12">
+          <label class="active" for="email">Website</label>
+          <%= f.text_field :website, :id => "website", :class => "validate", :type => "text" %>
+         </div>
+         </div>
+
+       <div class="row">
+         <div class="input-field col s12">
+          <label class="active" for="city">City / Province</label>
+          <%= f.text_field :city, :id => "city", :type => "text" %>
+         </div>
+         </div>
+
+         <div class="row">
+         <div class="input-field col s12">
+          <label class="active" for="city">City</label>
+          <%= f.text_field :country, :id => "country", :type => "text" %>
+         </div>
+         </div>
+
+          <div class="row">
+          <div class="input-field col s12">
+          <label class="active" for="message">Message</label>
+          <%= f.text_area :message, :id => "message", :class => "materialize-textarea" %>
+          </div>
+         </div>
+
+<div class="row">
+    <div style="padding-top: 15px;" class="col s12 center-align">
+            <%= button_tag(type: 'submit', class: "waves-effect waves-light btn center-align") do %>
+              Send <i style="padding-left: 5px;" class="material-icons right">send</i>
+         <% end %>
+                         
+
+   <% end %>
+   </div>
+   </div>
+
+   </div>
+</div>
+</div>
+</div>
+</div>

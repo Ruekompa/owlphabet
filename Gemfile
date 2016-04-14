@@ -44,6 +44,8 @@ gem "carrierwave", :git => 'git://github.com/carrierwaveuploader/carrierwave'
 
 gem 'materialize-sass', '~> 0.97.5'
 
+gem 'mail_form'
+
 gem 'friendly_id', '~> 5.1.0'
 
 gem 'acts-as-taggable-on', '~> 3.4'

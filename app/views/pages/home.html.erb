@@ -1,13 +1,30 @@
-<div class="header-video">
-    <img src="/images/mast-ancient-whales.jpg"
-         class="header-video__media"
-         data-video-URL="https://www.youtube.com/embed/Scxs7L0vhZ4"
-         data-teaser="video/teaser-video"
-         data-video-width="560"
-         data-video-height="315">
-    <a href="https://www.youtube.com/embed/hcvl7s4UwfI" class="header-video__play-trigger" id="header-video__play-trigger">Play video</a>
-    <button type="button" class="header-video__close-trigger" id="header-video__close-trigger">Close video</button>
+<div class="content">
+<div class="mast-text-wrap">
+
+<h1 class="brand-logo white-text">Owlphabet</h1>
+  <h1 class="mast-heading white-text" style="font-family: Roboto Slab, serif;">Music Collective</h1>
+
 </div>
 
-<script src="/js/video.js"></script>
+</div><!-- /content -->
+<div class="black">
+<video id="mast-video" class="video" muted loop>
+  <source src="/video/ancient-mast.mp4" type="video/mp4">
 
+</video><!-- /video -->
+</div>
+<script>
+(function() {
+  /**
+   * Video element
+   * @type {HTMLElement}
+   */
+  var video = document.getElementById("mast-video");
+  /**
+   * Check if video can play, and play it
+   */
+  video.addEventListener( "canplay", function() {
+    video.play();
+  });
+})();
+</script>
