@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
+  resources "contacts", only: [:new, :create]
+
   get 'manager' => 'managers#home'
 
-  devise_for :artists, controllers: { sessions: "artists/sessions", registrations: "artists/registrations" }
+  get 'invite/request' => 'invite_requests#select'
+  get 'invite/artist' => 'invite_requests#new'
+
+
+  devise_for :artists, controllers: { sessions: "artists/sessions", registrations: "artists/registrations", invitations: "artists/invitations" }
 
   get 'artists/sign_in' => 'sessions#new'
 
