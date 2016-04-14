@@ -19,6 +19,7 @@
 //= require bar-ui
 //=require jquery.pjax
 //=require social-share-button
+//=require rails.validations 
 //= require_tree .
 
 

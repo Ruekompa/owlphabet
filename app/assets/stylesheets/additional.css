@@ -171,6 +171,10 @@ div#materialize-lean-overlay-1 {
     color: white;
 }
 
+.alert.alert-notice {
+    color: #fff;
+}
+
 .nest {
     height: 650px;
 }
@@ -183,7 +187,27 @@ div#materialize-lean-overlay-1 {
   text-align: center;
 }
 
+div.field_with_errors > input#email {
+    border-bottom: 1px solid #e57373;
+    box-shadow: 0 1px 0 0 #e57373;
+}
 
+div.field_with_errors > input#name {
+    border-bottom: 1px solid #e57373;
+    box-shadow: 0 1px 0 0 #e57373;
+}
+
+label.message.active {
+    float: left;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+label.message {
+    float: left;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
 
 
 

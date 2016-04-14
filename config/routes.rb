@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'invite/request' => 'invite_requests#select'
   get 'invite/artist' => 'invite_requests#new'
+  get 'invite/listener' => 'invite_requests#user_invite'
 
 
   devise_for :artists, controllers: { sessions: "artists/sessions", registrations: "artists/registrations", invitations: "artists/invitations" }

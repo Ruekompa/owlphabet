@@ -6,13 +6,14 @@ class Contact < MailForm::Base
   attribute :country 
   attribute :website 
   attribute :message
+  attribute :invitation_type
   attribute :nickname,  :captcha  => true
 
   # Declare the e-mail headers. It accepts anything the mail method
   # in ActionMailer accepts.
   def headers
     {
-      :subject => "Artist Sign Up",
+      :subject => "Owlphabet Invitation Request",
       :to => "russell@signalmtn.io",
       :from => %("#{name}" <#{email}>)
     }
