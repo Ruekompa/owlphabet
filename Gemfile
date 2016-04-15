@@ -68,6 +68,7 @@ gem 'ranked-model'
 
 gem 'client_side_validations', :git => 'git://github.com/DavyJonesLocker/client_side_validations/', :branch => '4-2-stable'
 
+gem 'taglib-ruby'
 
 
 group :development, :test do

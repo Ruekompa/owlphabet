@@ -85,6 +85,12 @@ a.sort_link {
     color: #2d2d2d;
 }
 
+.collection .collection-item.avatar .secondary-content {
+    position: absolute;
+    top: 16px;
+    right: 3rem;
+}
+
 /*Song Player*/
 
 .sm2-bar-ui {
@@ -209,7 +215,9 @@ label.message {
     margin-bottom: 15px;
 }
 
-
+.fixed-action-btn.horizontal.click-to-toggle {
+    z-index: 2;
+}
 
 
 /* =============================================================================
