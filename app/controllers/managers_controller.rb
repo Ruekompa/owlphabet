@@ -4,7 +4,8 @@ class ManagersController < ApplicationController
 	before_action :authenticate_artist!
 
 	def home
-
+    @q = Project.search(params[:q].try(:merge, m: 'or'))
+    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
 	end
 
 	def projects

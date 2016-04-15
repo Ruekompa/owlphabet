@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :projects
 
+  get 'music/projects' => 'music#projects'
 
   resources :projects do
      resources :albums do
