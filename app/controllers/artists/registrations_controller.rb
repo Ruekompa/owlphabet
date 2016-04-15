@@ -1,6 +1,5 @@
 class Artists::RegistrationsController < Devise::RegistrationsController
 
-  layout 'manager'
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
@@ -11,12 +10,12 @@ class Artists::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+   
   # end
 
   # GET /resource/edit
   # def edit
-  # Artist.friendly.find(params[:id])
+  # # Artist.find(params[:id])
   # end
 
   # PUT /resource
@@ -38,13 +37,34 @@ class Artists::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def after_sign_in_path_for(resource)
+  stored_location_for(resource) ||
+    if resource.is_a?(Artist)
+      manager_path
+    else
+      super
+    end
+  end
+
+   
+
+# def full_name
+#   [first_name, last_name].join(' ')
+# end
+
+# def full_name=(name)
+#   elements = name.split(' ')
+#   self.last_name = elements.delete(elements.last)
+#   self.first_name = elements.join(" ")
+# end
+
 
   private
 
   # You can put the params you want to permit in the empty array.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+  def configure_sign_up_params
+    params.require(:artist).permit(:name, :email, :password, :password_confirmation, :current_password)
+  end
 
   # You can put the params you want to permit in the empty array.
   def account_update_params

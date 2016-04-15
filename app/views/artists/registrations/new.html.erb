@@ -14,9 +14,16 @@
     </div>
     </div>
     </div>
+
      <div class="row">
    <div class="input-field col s12">
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.text_field :name, autofocus: true %>
+    <%= f.label :name %>
+   </div>
+</div>
+     <div class="row">
+   <div class="input-field col s12">
+    <%= f.email_field :email %>
     <%= f.label :email %>
    </div>
 </div>

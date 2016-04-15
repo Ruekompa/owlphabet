@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412220209) do
+ActiveRecord::Schema.define(version: 20160414232512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20160412220209) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "slug"
-    t.integer  "project_id"
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160412220209) do
   add_index "artists", ["invitations_count"], name: "index_artists_on_invitations_count", using: :btree
   add_index "artists", ["invited_by_id"], name: "index_artists_on_invited_by_id", using: :btree
   add_index "artists", ["name"], name: "index_artists_on_name", unique: true, using: :btree
-  add_index "artists", ["project_id"], name: "index_artists_on_project_id", using: :btree
   add_index "artists", ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true, using: :btree
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 
@@ -144,7 +142,6 @@ ActiveRecord::Schema.define(version: 20160412220209) do
 
   add_foreign_key "albums", "artists"
   add_foreign_key "albums", "projects"
-  add_foreign_key "artists", "projects"
   add_foreign_key "projects", "artists"
   add_foreign_key "tracks", "projects"
 end

@@ -7,7 +7,6 @@ class Album < ActiveRecord::Base
   accepts_nested_attributes_for :tracks
 
 	mount_uploader :cover_art, CoverArtUploader
-  mount_uploader :song, SongUploader
 
 	extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]

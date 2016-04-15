@@ -1,9 +1,22 @@
 class ManagersController < ApplicationController
-	layout	'home_page'
+	layout	'manager'
 
-	before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
+	before_action :authenticate_artist!
 
 	def home
+
+	end
+
+	def projects
+		
+	end
+
+	def albums
+		
+	end
+
+
+	def tracks
 
 	end
 

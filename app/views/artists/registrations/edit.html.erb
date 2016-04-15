@@ -1,17 +1,22 @@
 <div class="container">
 <div class="row">
 <div class="col s12">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="white-text">Edit <%= resource_name.to_s.humanize %></h2>
 </div>
 </div>
+
+<div class="row">
 <div class="col s12">
+<div class="card-panel">
+<div class="card-content">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <div class="row">
 <div class="col s12">
   <%= devise_error_messages! %>
   </div>
   </div>
-  <div class="row">
+
+    <div class="row">
 <div class="col s12">
   <div class="field">
     <%= f.label :name %><br />
@@ -19,6 +24,8 @@
   </div>
 </div>
 </div>
+
+
 <div class="row">
 <div class="col s12">
   <div class="field">
@@ -61,23 +68,33 @@
   </div>
   </div>
   </div>
+  </div>
 
   <div class="row">
 <div class="col s12">
-    <%= f.submit 'Submit', :class => "btn btn-waves indigo darken-2" %>
+    <%= f.submit 'Submit', :class => "btn btn-waves" %>
   </div>
   </div>
 
 <% end %>
+</div>
+</div>
+</div>
+
+
 <div class="row">
 <div class="col s12">
+<div class="card-panel">
+<div class="card-content">
 <h3>Cancel my account</h3>
-
+</div>
 <p>Unhappy? 
-<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-waves red accent-2" %></p>
+<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-waves" %></p>
 
 <%= link_to "Back", :back %>
 </div>
 </div>
 </div>
 </div>
+
+</div> <!-- containter! -->

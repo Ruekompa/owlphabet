@@ -1,3 +1,3 @@
 class Artists::InvitationsController < Devise::InvitationsController
-  layout 'home_page'
+  layout 'manager'
 end

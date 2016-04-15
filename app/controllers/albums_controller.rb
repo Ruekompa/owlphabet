@@ -31,7 +31,7 @@ class AlbumsController < ApplicationController
 
   	  if @album.save 
         flash[:notice] = 'Album created'
-        redirect_to album_path
+        redirect_to project_albums_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
