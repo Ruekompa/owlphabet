@@ -19,7 +19,9 @@
         <a href="/" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
-        <li><a class="black-text" href="/projects">Projects</a></li>        
+           <li><a class="black-text" href="/projects">Projects</a></li>
+        <li><a class="black-text" href="/artsits/">Settings</a></li>
+        <li><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'black-text' %></li>           
       </ul>
      <ul class="side-nav" id="mobile-nav">
          <li><a class="black-text" href="/projects">Projects</a></li>

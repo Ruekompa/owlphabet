@@ -1,4 +1,6 @@
 class Artists::PasswordsController < Devise::PasswordsController
+   layout 'invite_pages'
+
   # GET /resource/password/new
   # def new
   #   super

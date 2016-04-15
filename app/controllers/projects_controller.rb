@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+   before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
 
   def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
