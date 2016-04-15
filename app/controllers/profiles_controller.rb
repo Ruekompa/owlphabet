@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
+	 before_action :authenticate_artist!
 
 	def show
 	  @artist = Artist.friendly.find params[:artist_id]

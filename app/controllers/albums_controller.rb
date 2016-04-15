@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 	 # before_action :artist_is_current_artist, except: [:index, :show]
-	 before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
+	 before_action :authenticate_artist!
 
 	def index
     @q = Project.search(params[:q])

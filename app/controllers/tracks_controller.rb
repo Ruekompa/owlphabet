@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
- before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
-
+ before_action :authenticate_artist!
+ 
   def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @artist = current_artist.friendly_id
