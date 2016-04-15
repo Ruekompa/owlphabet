@@ -21,4 +21,8 @@ class ManagersController < ApplicationController
 
 	end
 
+	def artist_projects
+		
+	end
+
 end

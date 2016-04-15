@@ -3,8 +3,13 @@ class Artist < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise   :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable, :invitable
-  has_many :credits
-  has_many :tracks, :through => :credits
+  has_many :projects 
+  has_many :albums
+  has_many :albums, :through => :projects
+
+  #TO DO Set up credit system through some acts as credible model to assign to artists 
+  # has_many :credits
+  # has_many :tracks, :through => :credits
 
 
 

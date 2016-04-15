@@ -29,4 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get ':artist_id/projects' => 'managers#artist_projects' 
+
 end
