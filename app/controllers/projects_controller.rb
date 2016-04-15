@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
-   before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
-
+   before_action :authenticate_artist!
   def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
