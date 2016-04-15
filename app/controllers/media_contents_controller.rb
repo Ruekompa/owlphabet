@@ -1,5 +1,5 @@
 class MediaContentsController < ApplicationController
-	before_action :authenticate_artist!, only: [:new, :edit, :create, :update, :destroy]
+	before_action :authenticate_artist!
 
 	 def create
      @media = Media.new(file_name: params[:file])
