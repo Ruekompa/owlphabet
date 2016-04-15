@@ -58,10 +58,7 @@ class ProjectsController < ApplicationController
       redirect_to :index
     end
 
-   def search
-    index
-    render :index
-   end
+
 
 
     def set_project

@@ -10,14 +10,14 @@ Rails.application.routes.draw do
   get 'invite/listener' => 'invite_requests#user_invite'
 
 
+  get 'music' => 'music#index'
+  get 'music/projects' => 'music#projects'
+  get 'music/projects/:id' => 'music#show_project', as: 'project'
+  get 'music/projects/:project_id/albums/:album_id' => 'music#show_album', as: 'projects_album'
+
   devise_for :artists, controllers: { sessions: "artists/sessions", registrations: "artists/registrations", invitations: "artists/invitations" }
 
   get 'artists/sign_in' => 'sessions#new'
-
-
-  resources :projects
-
-  get 'music/projects' => 'music#projects'
 
   resources :projects do
      resources :albums do

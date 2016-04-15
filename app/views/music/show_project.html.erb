@@ -1,0 +1,77 @@
+<div class="parallax-container">
+    <div class="parallax"><img src="<%= @project.cover_photo_url %>"></div>
+</div>
+
+
+<div class="container albums white">
+  <div class="row">
+  <div class="fixed-action-btn horizontal click-to-toggle">
+   <a class="btn-floating btn-large waves-effect waves-light blue-grey lighten-5 right share-project-show"><i class="material-icons black-text">share</i></a>
+   <ul>
+  <li><%= social_share_button_tag(@project.title, :popup => "true") %></li>
+    </ul>
+   </div>
+    <div class="col s12">
+   <div class="center">
+ 	<h1 class="project-show-title"><%= @project.title %></h1>
+ 	</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="container albums white">
+<div style="padding-left: 4rem; padding-right: 4rem;" class="row">
+<% if @albums.empty? %>
+ 	<div class="row">
+ 	<div class="col s12">
+
+ 	<p style="padding-left: 1rem; padding-right: 1rem;">No Albums Found.</p>
+ 	<a style="margin-bottom: 200px; margin-left: 1rem;" href="/projects/<%= @project.friendly_id %>/albums/new" class="btn red">New Album</a>
+ 	
+ 	</div>
+ 	</div>
+<% else %>
+ <h1 class="general-header"></h1>
+<div class="section white artwork">
+    <% @albums.each_slice(4) do |slice| %> 
+        <div class="row">
+          <% slice.each do |g| %>
+          <div class="col s12 m4 l4">
+          <div class="card">
+
+          <div class="card-image waves-effect waves-block waves-light">
+          <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator show-project-albums'), projects_album_path(@project.friendly_id, g.friendly_id) %>
+          </div>
+
+          <div class="card-content">
+          <div style="padding: 0;" class="col s12 m9 l10">
+          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %>  
+          </span>
+          </div>
+          <div style="padding: 0;" class="col s12 m3 l2">
+          <span>
+          <a class="btn-floating waves-effect waves-light red right"><i class="material-icons">play_arrow</i></a></span></div>
+          <span>
+          <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></span>
+
+          </div>
+
+          </div>
+         </div>
+     <% end %>
+</div>
+<% end %>
+</div>
+<% end %>
+</div>
+</div>
+<script type="text/javascript">
+	
+$( document ).ready(function() {
+$('.parallax').parallax();
+
+});
+</script>
