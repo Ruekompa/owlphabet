@@ -29,7 +29,6 @@ gem 'devise_invitable'
 
 gem 'puma'
 
-
 gem 'mini_magick'
 
 gem 'net-ssh'
@@ -70,6 +69,7 @@ gem 'client_side_validations', :git => 'git://github.com/DavyJonesLocker/client_
 
 gem 'taglib-ruby'
 
+gem 'carrierwave-audio'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
