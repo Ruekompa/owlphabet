@@ -1,4 +1,6 @@
 class TracksController < ApplicationController
+layout 'manager'
+
  before_action :authenticate_artist!
  
   def index
@@ -9,7 +11,6 @@ class TracksController < ApplicationController
     @album = @project.albums.friendly.find params[:album_id]
     @tracks = @album.tracks.all
     @track = @album.tracks.new
-
   end
 
   def show
@@ -30,7 +31,7 @@ class TracksController < ApplicationController
     @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = @project.albums.friendly.find params[:album_id]
-    @track = @album.tracks.new({ :file_name => params[:file], :name => params[:file].original_filename.split(".")[0].titleize })
+    @track = @album.tracks.new({ :file_name => params[:file], :name => params[:file].original_filename.split(".")[0].titleize, :duration => ""})
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
@@ -54,9 +55,20 @@ def download
 end
 
 
+ def song_length
+  @catch_song = TagLib::FileRef.open(:file_name) do |file|
+    unless file.null?
+    prop = file.audio_properties
+    song_length = prop.length
+    end
+  end 
+
+end
+
+
 	 private
       
     def track_params
-      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media, :row_order_position)
+      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration)
     end
 end
