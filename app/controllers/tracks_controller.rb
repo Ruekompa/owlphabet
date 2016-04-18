@@ -31,7 +31,7 @@ layout 'manager'
     @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = @project.albums.friendly.find params[:album_id]
-    @track = @album.tracks.new({ :file_name => params[:file], :name => params[:file].original_filename.split(".")[0].titleize, :duration => ""})
+    @track = @album.tracks.new({ :file_name => params[:file], :title => params[:file].original_filename.split(".")[0].titleize, :duration => "", :album_id => @album.slug})
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
@@ -48,27 +48,20 @@ layout 'manager'
       redirect_to :back
   end
   
-def download
-  @track = Track.find params[:id]
-  path = "/#{track.file_name}"
-  send_file @track.mv_link.path, x_sendfile: true
-end
+  def download
+    @track = Track.find params[:id]
+    path = "/#{track.file_name}"
+    send_file @track.mv_link.path, x_sendfile: true
+  end
 
 
- def song_length
-  @catch_song = TagLib::FileRef.open(:file_name) do |file|
-    unless file.null?
-    prop = file.audio_properties
-    song_length = prop.length
-    end
-  end 
-
-end
+   
 
 
-	 private
+  private
       
+
     def track_params
-      params.require(:track).permit(:project_id, :album_id, :name, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration)
+      params.require(:track).permit(:project_id, :album_id, :title, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration)
     end
 end

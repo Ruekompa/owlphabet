@@ -33,7 +33,7 @@
     <% @tracks.each do |media| %>            
        <li class="collection-item avatar">  
             <i class="large material-icons circle white black-text">play_arrow</i>
-            <%= link_to "#{media.name}", media.file_name.url, class: "collection-item flow-text" %>
+            <%= link_to "#{media.title}", media.file_name.url, class: "collection-item flow-text" %>
              <p class="secondary-content black-text"><%= media.duration %></p>
               <% end %>
        </li>

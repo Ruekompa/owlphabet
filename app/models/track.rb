@@ -5,4 +5,6 @@ class Track < ActiveRecord::Base
 	belongs_to :album
 	
 	mount_uploader :file_name, SongUploader
+
+
 end
