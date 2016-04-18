@@ -20,12 +20,9 @@ include CarrierWave::Audio
       "#{super.chomp(File.extname(super))}.mp3"
     end  
 
-   after :store, :tag_id3v2
-
+    after :store, :tag_id3v2
 
    end
-
-
 
 
   def extension_white_list
@@ -33,18 +30,19 @@ include CarrierWave::Audio
   end
 
   def tag_id3v2(for_file)
- 
+      #    frame_factory = TagLib::ID3v2::FrameFactory.instance
+  #     frame_factory.default_text_encoding = TagLib::String::UTF8
      TagLib::MPEG::File.open(file.file) do |file|
      tag = file.id3v2_tag(true)
      tag.title = "#{model.title}"
+     tag.artist = "#{model.info_artist}"
+     tag.album = "#{model.info_album}"
+     tag.year = model.info_year
      file.save
   
   end
   end 
 
-
-
- 
 
   def filename
    @filename.downcase
