@@ -51,7 +51,7 @@
    
           <tr>
             <td>2</td>
-            <td> <%= media.name %> </td>
+            <td> <%= media.title %> </td>
             <td><p><%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
                   <label for="<%= media.id %>">Delete</label></p></td>
            </tr>     
@@ -72,7 +72,7 @@
     <div class="modal-content">
       <h4>Track Upload</h4>
     <%= form_for [@project, @album, @track], url: {action: "create"}, html: {class: "dropzone", id: "media-dropzone"} do |f| %>
-      <%= hidden_field :project_id, multiple: true %>
+    <%= hidden_field :project_id, multiple: true %>
     <%= hidden_field :album_id, multiple: true %>
   <div class="fallback">
     <%= file_field :file_name, multiple: true %>
@@ -142,7 +142,7 @@ var appendContent = function(trackUrl, trackId) {
         position = ui.item.index();
         return $.ajax({
           type: 'POST',
-          url: '/galleries/update_row_order',
+          url: '/tracks/update_row_order',
           dataType: 'json',
           data: {
             gallery: {
