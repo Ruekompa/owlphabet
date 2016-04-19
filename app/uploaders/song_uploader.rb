@@ -1,6 +1,7 @@
 class SongUploader < CarrierWave::Uploader::Base
-require 'taglib'
-include CarrierWave::Audio
+  directory_permissions = 0777
+  require 'taglib'
+  include CarrierWave::Audio
 
   storage :file
  
@@ -30,14 +31,22 @@ include CarrierWave::Audio
   end
 
   def tag_id3v2(for_file)
-      #    frame_factory = TagLib::ID3v2::FrameFactory.instance
-  #     frame_factory.default_text_encoding = TagLib::String::UTF8
+     frame_factory = TagLib::ID3v2::FrameFactory.instance
+     frame_factory.default_text_encoding = TagLib::String::UTF8
      TagLib::MPEG::File.open(file.file) do |file|
      tag = file.id3v2_tag(true)
      tag.title = "#{model.title}"
      tag.artist = "#{model.info_artist}"
      tag.album = "#{model.info_album}"
      tag.year = model.info_year
+     apic = TagLib::ID3v2::AttachedPictureFrame.new
+     apic.mime_type = "image/jpeg"
+     apic.description = "Cover"
+     apic.type = TagLib::ID3v2::AttachedPictureFrame::FrontCover
+     apic.picture = File.open("public#{model.info_cover}", 'rb') { |f| f.read }
+ 
+     tag.add_frame(apic)
+
      file.save
   
   end

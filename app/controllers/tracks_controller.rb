@@ -31,7 +31,7 @@ layout 'manager'
     @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = @project.albums.friendly.find params[:album_id]
-    @track = @album.tracks.new({ :file_name => params[:file], :title => params[:file].original_filename.split(".")[0].titleize, :duration => "", :info_artist => params[:project_id].titleize, :info_album => params[:album_id].titleize, :info_year => @album.release_date.strftime("%Y").to_i })
+    @track = @album.tracks.new({ :file_name => params[:file], :title => params[:file].original_filename.split(".")[0].titleize, :duration => "", :info_artist => params[:project_id].titleize, :info_album => params[:album_id].titleize, :info_year => @album.release_date.strftime("%Y").to_i, :info_cover => @album.cover_art.url })
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
