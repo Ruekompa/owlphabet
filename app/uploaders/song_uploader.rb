@@ -51,9 +51,12 @@ class SongUploader < CarrierWave::Uploader::Base
   end
   end 
 
-
+if @filename == nil
+else
   def filename
+   @filename.downcase
   end
+end
 
 
 end
