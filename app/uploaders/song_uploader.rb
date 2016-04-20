@@ -1,5 +1,4 @@
 class SongUploader < CarrierWave::Uploader::Base
-  directory_permissions = 0777
   require 'taglib'
   include CarrierWave::Audio
 
@@ -54,7 +53,6 @@ class SongUploader < CarrierWave::Uploader::Base
 
 
   def filename
-   @filename.downcase
   end
 
 

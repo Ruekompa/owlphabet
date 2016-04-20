@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/sortable
+//= require jquery-ui/effect-highlight
 //= require materialize-sprockets
 //= require modernizr-custom
 //= require dropzone
@@ -20,6 +22,7 @@
 //=require jquery.pjax
 //=require social-share-button
 //=require rails.validations 
+//=require sort_tracks
 //= require_tree .
 
 

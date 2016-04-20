@@ -1,4 +1,8 @@
 class Track < ActiveRecord::Base
+
+	include RankedModel
+	ranks :row_order
+
 	has_many :credits
 	has_many :artists, :through => :credits
 	belongs_to :project
@@ -13,5 +17,9 @@ extend FriendlyId
 
    def should_generate_new_friendly_id?
     title_changed? || super
+  end
+
+  def calculated_row_order_position
+  self.siblings.where('row_order < ?', self.row_order).count + 1
   end
 end
