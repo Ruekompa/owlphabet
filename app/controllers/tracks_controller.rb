@@ -2,6 +2,14 @@ class TracksController < ApplicationController
 layout 'manager'
 
  before_action :authenticate_artist!
+
+ def update_row_order
+    @track = Track.find(track_params[:track_id])
+    @track.row_order_position = track_params[:row_order_position]
+    @track.save
+
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
  
   def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
@@ -9,8 +17,13 @@ layout 'manager'
     @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
     @project = Project.friendly.find(params[:project_id])
     @album = @project.albums.friendly.find params[:album_id]
-    @tracks = @album.tracks.friendly.all
+    @tracks = @album.tracks.friendly.rank(:row_order).all
     @track = @album.tracks.new
+
+    respond_to do |format|
+        format.html 
+        format.json { render json: @tracks}
+      end
   end
 
   def show
@@ -31,13 +44,24 @@ layout 'manager'
     @artist = current_artist.friendly_id
     @project = Project.friendly.find params[:project_id]
     @album = @project.albums.friendly.find params[:album_id]
-    @track = @album.tracks.new({ :file_name => params[:file], :title => params[:file].original_filename.split(".")[0].titleize, :duration => "", :info_artist => params[:project_id].titleize, :info_album => params[:album_id].titleize, :info_year => @album.release_date.strftime("%Y").to_i, :info_cover => @album.cover_art.url })
+    @track = @album.tracks.new({ :file_name => params[:file], :title => params[:file].original_filename.split(".")[0].titleize, :duration => "", :info_artist => params[:project_id].titleize, :info_album => params[:album_id].titleize, :info_year => @album.release_date.strftime("%Y").to_i, :info_cover => @album.cover_art.url, :row_order_position => "" })
     if @track.save!
       respond_to do |format|
         format.json{ render :json => @track }
       end
     end
   end
+
+  def update
+    @track = Track.find params[:id]
+      if @track.update_attributes track_params
+        flash[:notice] = 'Track has been updated'
+        redirect_to :back
+      else
+        flash.now[:warning] = 'There were problems when trying to update this track'
+        render :action => :edit
+      end
+    end
 
   def delete_media
     @artist = current_artist.friendly_id
@@ -55,13 +79,15 @@ layout 'manager'
   end
 
 
-   
+  # def set_track
+  #   @track = Track.find(params[:id])
+  # end
 
 
   private
       
 
     def track_params
-      params.require(:track).permit(:project_id, :album_id, :title, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration, :slug, :info_artist,:info_album, :info_year, :info_cover)
+      params.require(:track).permit(:project_id, :album_id, :title, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration, :slug, :info_artist,:info_album, :info_year, :info_cover, :track_id)
     end
 end
