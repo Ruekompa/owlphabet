@@ -47,12 +47,10 @@
 
           <div class="card-content">
           <div style="padding: 0;" class="col s12 m9 l10">
-          <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %>  
+          <span class="card-title activator grey-text text-darken-4 for-album-title"><%= g.title.titleize %>  
           </span>
           </div>
-          <div style="padding: 0;" class="col s12 m3 l2">
-          <span>
-          <a class="btn-floating waves-effect waves-light red right"><i class="material-icons">play_arrow</i></a></span></div>
+          
           <span>
           <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></span>
 
