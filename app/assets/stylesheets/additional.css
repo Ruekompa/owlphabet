@@ -236,3 +236,44 @@ video#mast-video {
       -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
+
+.input-field input[type=search] {
+    display: inline-block!important;
+    line-height: inherit;
+    padding-left: 4rem;
+    width: calc(100% - 4rem);
+}
+
+a.collection-item.flow-text {
+    border-bottom: 0;
+}
+
+.collection a.collection-item:not(.active):hover {
+    background-color: #f2f2f2;
+    min-height: 4rem;
+}
+
+a.black-text.user-left {
+    position: absolute;
+    left: 15px;
+    top: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.collection .collection-item {
+    background-color: #fff;
+    line-height: 1.5rem;
+    padding: 15px 20px;
+    margin: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.fixed-action-btn.for-album.horizontal.click-to-toggle {
+    bottom: 54px;
+    margin-right: 4.5rem;
+}
+
+.fixed-action-btn.for-album-play.horizontal.click-to-toggle {
+    bottom: 54px;
+}

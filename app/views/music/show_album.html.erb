@@ -2,7 +2,7 @@
     <div class="parallax"><img class="project-header" src="<%= @project.cover_photo_url %>"></div>
  </div>
 
- <div class="section">
+
  <div class="container albums white">
   <div class="row">
   <div class="col s12 m3 l3">
@@ -10,14 +10,30 @@
   </div>
     <div class="col s12 m9 l9">
     <div class="show-album-header">
-    <a class="btn-floating btn-large waves-effect waves-light red right show-play-album">
-    <i class="material-icons">play_arrow</i></a>
+
+    <div class="fixed-action-btn for-album-play horizontal click-to-toggle">
+     <a class="btn-floating btn-large waves-effect waves-light right"><i class="material-icons white-text">play_arrow</i></a>
+     
+   </div>
+   
+    <div class="fixed-action-btn for-album horizontal click-to-toggle">
+     <a class="btn-floating btn-large waves-effect waves-light blue-grey lighten-5 right share-project-show"><i class="material-icons black-text">share</i></a>
+      <ul>
+    <li><%= social_share_button_tag(@project.title, :popup => "true") %></li>
+    </ul>
+   </div>
+
+   
+
  	<span><h1 class="album-title"><%= @album.title %></h1> 
   <a href="/projects/<%= @project.friendly_id %>" class="card-date black-text">
   <%= @project.title %></a><br>
   <a href="#" class="card-date"> <%= pluralize(@album.tracks.count, 'Song') %></a> &#8226; 
   <a href="#" class="card-date">
   <%= @album.release_date.strftime("%Y") %></a> 
+  &#8226; 
+   <a href="#" class="card-date">
+  <%= @album.genre_list.to_s.titleize %></a> 
   </span>
 </div>
 </div>
@@ -26,20 +42,31 @@
 <% if @tracks.empty?  %>
  <h5 id="no-media">No Media Found</h5>
 <% else %>
-
-<div class="row">
-  <div class="col s12">
-   <ul class="collection">
-    <% @tracks.each do |media| %>            
-       <li class="collection-item avatar">  
-            <i class="large material-icons circle white black-text">play_arrow</i>
-            <%= link_to "#{media.title}", media.file_name.url, class: "collection-item flow-text" %>
-             <p class="secondary-content black-text"><%= media.duration %></p>
-              <% end %>
-       </li>
-
+  <table class="highlight edit-tracks-index">
+      <thead>
+          <tr >
+              <th data-field="id" style="padding-left: 1rem;">#</th>
+              <th data-field="name">Title</th>
+              <th data-field="price"></th>
+          </tr>
+        </thead>
+ 
+           <tbody id="media-contents">
+          <% @tracks.each.with_index(1) do |media, index| %>
+          
+          <tr data-item-id=<%= "#{media.id}" %> class="item">
+      
+            <td style="padding-left: 1rem;"><%= index %></td>
+            <td><p class="flow-text"><%= media.title %></p></td>
+            <td>Duration</td>
+           </tr>     
+         
+               <% end %>
+                  
+                 </tbody>
+                </table>
 <% end %>
- 	</ul>
+
   <!-- <ul id="dropdown" class="dropdown-content">
   <% %>
   <li><a href="#!">Go to Artst</a></li>
