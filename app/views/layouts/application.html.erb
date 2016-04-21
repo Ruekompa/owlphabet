@@ -1,42 +1,165 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Owlphabet Manager</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <title>Owlphabet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
  <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700' rel='stylesheet' type='text/css'>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="blue-grey darken-4">
+<body class="grey lighten-3">
 <header>
 <div id="top" class="navbar-fixed">
 <nav>
     <div class="nav-wrapper white">
-
-        <a href="/" class="brand-logo black-text">OWLPHABET</a>
+        <a href="/music" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
-         <li><a class="black-text" href="/manager">Manager</a></li>
-           <li><a class="black-text" href="/projects">Projects</a></li>
-        <li><a class="black-text" href="/artists/edit">Settings</a></li>
-        <li><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'black-text' %></li>           
+      <li><a style="font-weight: 400;" class="black-text" href="/music">Music</a></li>  
+      <li>
+
+  <%= search_form_for @q, url: music_path, html: { method: :get, id: 'search_filter', 'data-skip-pjax' => true } do |f| %>
+        <div class="input-field">
+          <%= f.search_field :title_cont %>
+          <label for="search"><i class="material-icons black-text search">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+       <% end %>
+</li>
+  </nav>
       </ul>
      <ul class="side-nav" id="mobile-nav">
-         <li><a class="black-text" href="/projects">Projects</a></li>
+         <li><a style="font-weight: 400;" class="black-text" href="/music">Music</a></li>
       </ul>
     </div>
-  </nav>
+
   </div>
   </header>
 <% flash.each do |key, value| %>
-        <div style="text-align: center;" class="alert alert-<%= key %>"><%= value %></div>
+        <div style="text-align: center;" class="alert alert-<%= key %>"><%= value %>
+        </div>
   <% end %>
 <main role="main">
-<%= yield %>
-</main>
 
-</body>
+<div data-pjax-container>
+<%= yield %>
+</div>
+</main>
+<!-- fixed, bottom-aligned, full-width player -->
+
+
+
+
+<div class="sm2-bar-ui flat full-width fixed">
+
+ <div class="bd sm2-main-controls">
+
+  <div class="sm2-inline-texture"></div>
+  <div class="sm2-inline-gradient"></div>
+
+  <div class="sm2-inline-element sm2-button-element">
+   <div class="sm2-button-bd">
+    <a href="#play" class="sm2-inline-button play-pause">Play / pause</a>
+   </div>
+  </div>
+
+  <div class="sm2-inline-element sm2-inline-status">
+
+   <div class="sm2-playlist">
+    <div class="sm2-playlist-target">
+     <!-- playlist <ul> + <li> markup will be injected here -->
+     <!-- if you want default / non-JS content, you can put that here. -->
+     <noscript><p>JavaScript is required.</p></noscript>
+    </div>
+   </div>
+
+   <div class="sm2-progress">
+    <div class="sm2-row">
+    <div class="sm2-inline-time">0:00</div>
+     <div class="sm2-progress-bd">
+      <div class="sm2-progress-track">
+       <div class="sm2-progress-bar"></div>
+       <div class="sm2-progress-ball"><div class="icon-overlay"></div></div>
+      </div>
+     </div>
+     <div class="sm2-inline-duration">0:00</div>
+    </div>
+   </div>
+
+  </div>
+
+  <div class="sm2-inline-element sm2-button-element sm2-volume">
+   <div class="sm2-button-bd">
+    <span class="sm2-inline-button sm2-volume-control volume-shade"></span>
+    <a href="#volume" class="sm2-inline-button sm2-volume-control">volume</a>
+   </div>
+  </div>
+
+  <div class="sm2-inline-element sm2-button-element">
+   <div class="sm2-button-bd">
+    <a href="#prev" title="Previous" class="sm2-inline-button previous">&lt; previous</a>
+   </div>
+  </div>
+
+  <div class="sm2-inline-element sm2-button-element">
+   <div class="sm2-button-bd">
+    <a href="#next" title="Next" class="sm2-inline-button next">&gt; next</a>
+   </div>
+  </div>
+
+  <div class="sm2-inline-element sm2-button-element">
+   <div class="sm2-button-bd">
+    <a href="#repeat" title="Repeat playlist" class="sm2-inline-button repeat">&infin; repeat</a>
+   </div>
+  </div>
+
+  <!-- not implemented -->
+  <!--
+  <div class="sm2-inline-element sm2-button-element disabled">
+   <div class="sm2-button-bd">
+    <a href="#shuffle" title="Shuffle" class="sm2-inline-button shuffle">shuffle</a>
+   </div>
+  </div>
+  -->
+
+  <div class="sm2-inline-element sm2-button-element sm2-menu">
+   <div class="sm2-button-bd">
+    <a href="#menu" class="sm2-inline-button menu">menu</a>
+   </div>
+  </div>
+
+ </div>
+
+ <div class="bd sm2-playlist-drawer sm2-element">
+
+  <div class="sm2-inline-texture">
+   <div class="sm2-box-shadow"></div>
+  </div>
+
+  <!-- playlist content is mirrored here -->
+
+  <div class="sm2-playlist-wrapper">
+
+    <ul class="sm2-playlist-bd">
+
+
+<% Track.all.each do |a| %>
+<li><%= link_to File.basename(a.title), "/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>
+
+<% end %>
+
+    </ul>
+  
+  </div>
+
+ </div>
+
+</div>
+<script type="text/javascript">
+  
+</script>
+ </body>
 </html>

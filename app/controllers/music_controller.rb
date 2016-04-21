@@ -1,6 +1,4 @@
 class MusicController < ApplicationController
-	layout 'listener_account'
-
 	def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
@@ -26,7 +24,7 @@ class MusicController < ApplicationController
      @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
      @project = Project.friendly.find params[:project_id]
  	 @album = Album.find params[:album_id]
-     @tracks = @album.tracks
+     @tracks = @album.tracks.order(:row_order)
     end
 
     def search
