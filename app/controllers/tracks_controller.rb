@@ -1,14 +1,14 @@
 class TracksController < ApplicationController
 layout 'manager'
 
- before_action :authenticate_artist!
+ before_action :authenticate_artist!, :except => [:download]
 
  def update_row_order
     @track = Track.find(track_params[:track_id])
     @track.row_order_position = track_params[:row_order_position]
     @track.save
 
-    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+    render nothing: true 
   end
  
   def index
@@ -74,16 +74,11 @@ layout 'manager'
   
   def download
     @track = Track.find params[:id]
-    path = "/#{track.file_name}"
-    send_file @track.mv_link.path, x_sendfile: true
+    path = "/#{@track.file_name.file}"
+    send_file @track.file_name.mp3.path, x_sendfile: true, :stream => true
   end
 
-
-  # def set_track
-  #   @track = Track.find(params[:id])
-  # end
-
-
+ 
   private
       
 

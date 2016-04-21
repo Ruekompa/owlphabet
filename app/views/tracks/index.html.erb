@@ -46,15 +46,18 @@
               <th data-field="price"></th>
           </tr>
         </thead>
-         <tbody id="media-contents">
-          <% @tracks.each do |media| %>
-   
+ 
+           <tbody id="media-contents">
+          <% @tracks.each.with_index(1) do |media, index| %>
+          
           <tr data-item-id=<%= "#{media.id}" %> class="item">
-            <td>2</td>
+      
+            <td><%= index %></td>
             <td> <%= media.title %> </td>
             <td><p><%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
                   <label for="<%= media.id %>">Delete</label></p></td>
            </tr>     
+         
                <% end %>
                   
                  </tbody>

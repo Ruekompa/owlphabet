@@ -14,7 +14,7 @@ class AlbumsController < ApplicationController
     @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
     @project = Project.friendly.find params[:project_id]
 	  @album = Album.find params[:id]
-    @tracks = @album.tracks
+    @tracks = @album.tracks.order(:row_order)
 
 	end
 
