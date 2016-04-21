@@ -60,5 +60,8 @@ $(function() {
   $(document).pjax('a:not([data-remote]):not([data-behavior]):not([data-skip-pjax])', '[data-pjax-container]')
 });
 
+$(document).on('submit', 'form#search_filter', function(event) {
+  $.pjax.submit(event, '#search_filter')
+})
 
           

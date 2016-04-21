@@ -10,7 +10,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body class="grey lighten-3">
+<body class="grey lighten-4">
 <header>
 <div id="top" class="navbar-fixed">
 <nav>
@@ -18,18 +18,18 @@
         <a href="/music" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
-      <li><a style="font-weight: 400;" class="black-text" href="/music">Music</a></li>  
-      <li>
-
-  <%= search_form_for @q, url: music_path, html: { method: :get, id: 'search_filter', 'data-skip-pjax' => true } do |f| %>
-        <div class="input-field">
+         <li> <%= search_form_for @q, url: music_path, html: { method: :get, id: 'search_filter', 'data-skip-pjax' => true } do |f| %>
+            <div class="input-field">
           <%= f.search_field :title_cont %>
           <label for="search"><i class="material-icons black-text search">search</i></label>
           <i class="material-icons">close</i>
         </div>
        <% end %>
-</li>
-  </nav>
+       </li>
+      <li><a style="font-weight: 400;" class="black-text" href="/music">Music</a></li>  
+      
+
+     </nav>
       </ul>
      <ul class="side-nav" id="mobile-nav">
          <li><a style="font-weight: 400;" class="black-text" href="/music">Music</a></li>
@@ -43,7 +43,6 @@
         </div>
   <% end %>
 <main role="main">
-
 <div data-pjax-container>
 <%= yield %>
 </div>
