@@ -54,7 +54,6 @@ layout 'manager'
      prop = file.audio_properties
      song_duration = prop.length
      file.save 
-   
       @track.update_attributes({:duration => song_duration})
      end
     end

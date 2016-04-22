@@ -60,7 +60,8 @@
       
             <td style="padding-left: 1rem;"><%= index %></td>
             <td><p class="flow-text"><%= media.title %></p></td>
-            <td>Duration</td>
+            <% t = media.duration %>
+            <td><%= Time.at(t).utc.strftime("%M:%S") %> </td>
            </tr>     
          
                <% end %>
