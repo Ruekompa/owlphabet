@@ -49,6 +49,14 @@ layout 'manager'
       respond_to do |format|
         format.json{ render :json => @track }
       end
+      TagLib::MPEG::File.open(@track.file_name.mp3.path) do |file|
+     tag = file.id3v2_tag(true)
+     prop = file.audio_properties
+     song_duration = prop.length
+     file.save 
+   
+      @track.update_attributes({:duration => song_duration})
+     end
     end
   end
 
@@ -71,16 +79,18 @@ layout 'manager'
       flash[:notice] = 'Song Track Trashed'
       redirect_to :back
   end
-  
+
   def download
     @track = Track.find params[:id]
     path = "/#{@track.file_name.file}"
     send_file @track.file_name.mp3.path, x_sendfile: true, :stream => true
   end
+  
 
- 
-  private
-      
+
+  private     
+
+
 
     def track_params
       params.require(:track).permit(:project_id, :album_id, :title, :file_name, :remove_file_name, :delete_media, :row_order_position, :duration, :slug, :info_artist,:info_album, :info_year, :info_cover, :track_id)

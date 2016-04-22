@@ -22,7 +22,6 @@ extend FriendlyId
 
   def calculated_row_order_position
   self.siblings.where('row_order < ?', self.row_order).count + 1
- end
-
+  end
 
 end

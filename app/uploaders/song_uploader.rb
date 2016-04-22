@@ -21,7 +21,7 @@ class SongUploader < CarrierWave::Uploader::Base
     end  
 
     after :store, :tag_id3v2
-
+    after :commit, :song_duration
    end
 
 
@@ -44,19 +44,17 @@ class SongUploader < CarrierWave::Uploader::Base
      apic.type = TagLib::ID3v2::AttachedPictureFrame::FrontCover
      apic.picture = File.open("public#{model.info_cover}", 'rb') { |f| f.read }
  
-     tag.add_frame(apic)
+    tag.add_frame(apic)
 
-     file.save
-  
+    file.save
   end
-  end 
+  end
+   
 
-if @filename == nil
-else
+  if @filename == nil
+   else
   def filename
    @filename.downcase
+   end
   end
-end
-
-
 end
