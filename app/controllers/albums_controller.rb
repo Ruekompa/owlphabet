@@ -15,7 +15,10 @@ class AlbumsController < ApplicationController
     @project = Project.friendly.find params[:project_id]
 	  @album = Album.find params[:id]
     @tracks = @album.tracks.order(:row_order)
-
+    respond_to do |format|
+    format.html 
+    format.json { render json: @tracks}
+    end
 	end
 
   def new

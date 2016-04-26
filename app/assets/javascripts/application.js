@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//=require jquery.pjax
 //= require materialize-sprockets
 //= require soundmanager2
 //= require bar-ui
-//=require jquery.pjax
 //=require social-share-button
 //=require rails.validations 
+
 
 
 $( document ).ready(function() {
@@ -63,5 +64,7 @@ $(function() {
 $(document).on('submit', 'form#search_filter', function(event) {
   $.pjax.submit(event, '#search_filter')
 })
+
+
 
           

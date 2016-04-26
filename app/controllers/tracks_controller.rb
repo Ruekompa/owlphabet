@@ -84,7 +84,6 @@ layout 'manager'
     path = "/#{@track.file_name.file}"
     send_file @track.file_name.mp3.path, x_sendfile: true, :stream => true
   end
-  
 
 
   private     

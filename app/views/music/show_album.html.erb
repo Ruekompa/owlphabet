@@ -12,7 +12,7 @@
     <div class="show-album-header">
 
     <div class="fixed-action-btn for-album-play horizontal click-to-toggle">
-     <a class="btn-floating btn-large waves-effect waves-light right"><i class="material-icons white-text">play_arrow</i></a>
+     <a class="play_album_as_list btn-floating btn-large waves-effect waves-light right"><i class="material-icons white-text">play_arrow</i></a>
      
    </div>
    
@@ -26,14 +26,16 @@
    
 
  	<span><h1 class="album-title"><%= @album.title %></h1> 
-  <a href="/projects/<%= @project.friendly_id %>" class="card-date black-text">
+  <a href="/music/projects/<%= @project.friendly_id %>" class="card-date black-text">
   <%= @project.title %></a><br>
   <a href="#" class="card-date">
   <%= @album.release_date.strftime("%Y") %>
   </a> 
   &#8226; 
   <a href="#" class="card-date"> <%= pluralize(@album.tracks.count, 'Song') %></a> &#8226; 
-
+    <% total_duration = @tracks.sum(:duration) %>
+   <a href="#" class="card-date"><%= Time.at(total_duration).utc.strftime("%M:%S") %> </a>
+  &#8226; 
    <a href="#" class="card-date">
   <%= @album.genre_list.to_s.titleize %></a> 
   </span>
@@ -90,5 +92,16 @@
   $('.parallax').parallax();
   </script>
 
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("a.play_album_as_list").on('click',function(e){
+        <% unless @tracks.nil? %>
+        <% @tracks.each do |a| %>
+        $(".sm2-playlist-bd").append('<li><%= link_to File.basename("#{a.title}"), "/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
+        <% end %>
+                 window.sm2BarPlayers[0].actions.play();
+        <% end %>
+    });
+});
+</script>
 
