@@ -12,8 +12,8 @@ Rails.application.routes.draw do
 
   get 'music' => 'music#index'
   get 'music/projects' => 'music#projects'
-  get 'music/projects/:id' => 'music#show_project', as: 'project'
-  get 'music/projects/:project_id/albums/:album_id' => 'music#show_album', as: 'projects_album'
+  get 'music/projects/:id' => 'music#show_project', as: 'music_project'
+  get 'music/projects/:project_id/albums/:album_id' => 'music#show_album', as: 'music_project_album'
 
   devise_for :artists, controllers: { sessions: "artists/sessions", registrations: "artists/registrations", invitations: "artists/invitations" }
 

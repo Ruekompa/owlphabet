@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
-	 # before_action :artist_is_current_artist, except: [:index, :show]
 	 before_action :authenticate_artist!
+
+   layout 'manager'
 
 	def index
     @q = Project.search(params[:q])

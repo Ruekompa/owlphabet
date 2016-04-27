@@ -42,7 +42,7 @@
           <div class="card">
 
           <div class="card-image waves-effect waves-block waves-light">
-          <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator show-project-albums'), projects_album_path(@project.friendly_id, g.friendly_id) %>
+          <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator show-project-albums'), music_project_album_path(@project.friendly_id, g.friendly_id) %>
           </div>
 
           <div class="card-content">

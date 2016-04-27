@@ -23,7 +23,7 @@
 //=require social-share-button
 //=require rails.validations 
 //=require sort_tracks
-//= require_tree .
+
 
 
 $( document ).ready(function() {

@@ -18,11 +18,16 @@
 
         <a href="/" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
-         <ul class="right hide-on-med-and-down">
-           <li><a class="black-text" href="/projects">Projects</a></li>
-        <li><a class="black-text" href="/artsits/">Settings</a></li>
-        <li><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'black-text' %></li>           
+        <ul class="right hide-on-med-and-down">
+         <li><a class="black-text" href="/projects"><i class="material-icons">library_music</i></a></li>
+         <li><a class="dropdown-button black-text" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
       </ul>
+    <ul id='dropdown1' class='dropdown-content'>
+     <li><a href="/artists/edit">Edit Account</a></li>
+     <hr>
+    <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'white-text btn nav-signout' %></li> 
+   
+  </ul>
      <ul class="side-nav" id="mobile-nav">
          <li><a class="black-text" href="/projects">Projects</a></li>
       </ul>
@@ -33,9 +38,26 @@
 <% flash.each do |key, value| %>
         <div style="text-align: center;" class="alert alert-<%= key %>"><%= value %></div>
   <% end %>
+<div data-pjax-container>
 <main role="main">
 <%= yield %>
 </main>
+</div>
+<script type="text/javascript">
+
+$( document ).ready(function() {
+ $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+});
+  </script>
 
 </body>
 </html>

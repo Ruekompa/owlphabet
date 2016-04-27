@@ -1,14 +1,26 @@
 <div style="padding-bottom: 15rem;">
  <div class="container">
   <div class="card-panel">
-   <div class="row">
-    <div class="col s12">
-        <h4>Manage Tracks</h4><hr>
-      </div>
-     </div>
-   <%= form_tag project_album_delete_media_path, method: :delete do %>
-      <div class="row">
+  <div class="row">
+  <div class="col s12 m3 l3">
+  <img class="responsive-img materialboxed" src="<%= @album.cover_art_url(:thumb) %>">
+  </div>
+    <div class="col s12 m9 l9">
+    <div class="show-album-header">
+  <span><h1 class="album-title"><%= @album.title %></h1> 
+  <a href="/projects/<%= @project.friendly_id %>" class="card-date black-text">
+  <%= @project.title %></a><br>
+  <a href="#" class="card-date"> <%= pluralize(@album.tracks.count, 'Song') %></a> &#8226; 
+  <a href="#" class="card-date">
+  <%= @album.release_date.strftime("%Y") %></a> 
+  </span>
+</div>
+</div>
+</div>
+  <div class="row">
         <div class="col s12">
+   <%= form_tag project_album_delete_media_path, method: :delete do %>
+    
            <span>
             <button data-target="modal1" class="btn modal-trigger">Upload</button>
               <%= submit_tag "Delete", id: "delete", class: "btn btn-danger", disabled: @tracks.empty? %>
@@ -16,7 +28,9 @@
             </div>
           </div>
        </div>
+</div>
 
+  <div class="container">
 <div class="card-panel">
          <% if @tracks.empty? %>
            
@@ -67,7 +81,6 @@
        <% end %>
       </div>
     </div>
- 
 
 <!-- Modal Structure -->
   <div id="modal1" class="modal modal-fixed-footer">
