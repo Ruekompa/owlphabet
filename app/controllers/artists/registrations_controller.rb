@@ -14,9 +14,10 @@ class Artists::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  # # Artist.find(params[:id])
-  # end
+  def edit
+ @q = Project.search(params[:q])
+ @projects =  @q.result.includes(:albums)
+  end
 
   # PUT /resource
   # def update

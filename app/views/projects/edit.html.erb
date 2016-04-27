@@ -15,7 +15,7 @@
              </div>
              <div class="row">
                <div class="file-field input-field">
-                 <div class="btn red accent-2">
+                 <div class="btn">
                  <span>Cover Photo</span>
                 <%= f.file_field :cover_photo %>
                  </div>
@@ -31,10 +31,11 @@
         
           </div>
             <div class="card-action">
-              <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
+              <%= f.submit 'Submit', :class => "btn btn-waves" %>
+           
+       
             </div>
           </div>
-      
         </div>
       </div>
       <% end %>

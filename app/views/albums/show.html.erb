@@ -1,9 +1,5 @@
- <div class="parallax-container">
-    <div class="parallax"><img class="project-header" src="<%= @project.cover_photo_url %>"></div>
- </div>
-
  <div class="section">
- <div class="container albums white">
+ <div class="container white">
   <div class="row">
   <div class="col s12 m3 l3">
   <img class="responsive-img materialboxed" src="<%= @album.cover_art_url(:thumb) %>">
@@ -32,10 +28,13 @@
    <ul class="collection">
     <% @tracks.each do |media| %>            
        <li class="collection-item avatar">  
-            <i class="large material-icons circle white black-text">play_arrow</i>
+           <i class="large material-icons circle">drag_handle</i>
             <%= link_to "#{media.title}", media.file_name.url, class: "collection-item flow-text" %>
-                <% end %>
-             <p class="secondary-content black-text">2:43</p>
+              <% t = media.duration %>
+             <p class="secondary-content black-text">
+          <%= Time.at(t).utc.strftime("%M:%S") %> 
+          </p>
+             <% end %>
        </li>
 
 <% end %>

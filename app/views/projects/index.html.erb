@@ -3,11 +3,17 @@
 
 <div class="container">
 <div class="row">
-
 <div class="right">
 <%= sort_link(@q, :title, [:title, 'title asc'], '<i class="material-icons black-text">sort_by_alpha</i>'.html_safe) %>
 </div>
+<div class="col s12">
+<h2>Projects</h2>
+<p class="flow-text">Select a project to edit</p>
 </div>
+</div>
+
+
+
 
     <% @projects.each_slice(4) do |slice| %> 
         <div class="row">

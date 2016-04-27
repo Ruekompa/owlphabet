@@ -281,3 +281,16 @@ a.black-text.user-left {
 span.card-title.activator.grey-text.text-darken-4.for-album-title {
     line-height: 2.2rem;
 }
+
+a.white-text.btn.nav-signout {
+    font-size: 13px;
+    padding-top: 7px;
+}
+
+a.white-text.btn.nav-signout:hover {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0), 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+li.drop-btn-effects:hover {
+    background-color: #fff !important;
+}
