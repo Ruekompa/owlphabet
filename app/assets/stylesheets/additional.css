@@ -119,6 +119,10 @@ h1.album-title {
     position: relative;
 }
 
+.fixed-action-btn.horizontal.click-to-toggle.share {
+    position: relative;
+}
+
 
 .social-share-button-facebook {
     display: inline-block;
