@@ -13,10 +13,9 @@
 
     <div class="fixed-action-btn for-album-play horizontal click-to-toggle play">
      <a class="play_album_as_list btn-floating btn-large waves-effect waves-light right"><i class="material-icons white-text">play_arrow</i></a>
-     
    </div>
    
-    <div class="fixed-action-btn for-album horizontal click-to-toggle">
+    <div class="fixed-action-btn for-album horizontal click-to-toggle share">
      <a class="btn-floating btn-large waves-effect waves-light blue-grey lighten-5 right share-project-show"><i class="material-icons black-text">share</i></a>
       <ul>
     <li><%= social_share_button_tag(@project.title, :popup => "true") %></li>
@@ -99,7 +98,7 @@
         <% @tracks.each do |a| %>
         $(".sm2-playlist-bd").append('<li><%= link_to File.basename("#{a.title}"), "/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
         <% end %>
-                 window.sm2BarPlayers[0].actions.play();
+                 window.sm2BarPlayers[0].actions.play(0);
         <% end %>
     });
 });
