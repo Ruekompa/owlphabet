@@ -101,6 +101,9 @@
                  window.sm2BarPlayers[0].actions.play(0);
         <% end %>
     });
+    if (sound0.playState === 1) {
+      soundManager.reboot;
+    } 
 });
 </script>
 
