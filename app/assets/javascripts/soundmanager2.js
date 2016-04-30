@@ -74,8 +74,8 @@ function SoundManager(smURL, smID) {
     'waitForWindowLoad': false,         // force SM2 to wait for window.onload() before trying to call soundManager.onload()
     'bgColor': '#ffffff',               // SWF background color. N/A when wmode = 'transparent'
     'useHighPerformance': false,        // position:fixed flash movie can help increase js/flash speed, minimize lag
-    'flashPollingInterval': null,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
-    'html5PollingInterval': null,       // msec affecting whileplaying() for HTML5 audio, excluding mobile devices. If null, native HTML5 update events are used.
+    'flashPollingInterval': 5000,       // msec affecting whileplaying/loading callback frequency. If null, default of 50 msec is used.
+    'html5PollingInterval': 5000,       // msec affecting whileplaying() for HTML5 audio, excluding mobile devices. If null, native HTML5 update events are used.
     'flashLoadTimeout': 1000,           // msec to wait for flash movie to load before failing (0 = infinity)
     'wmode': null,                      // flash rendering mode - null, 'transparent', or 'opaque' (last two allow z-index to work)
     'allowScriptAccess': 'always',      // for scripting the SWF (object/embed property), 'always' or 'sameDomain'
@@ -101,13 +101,13 @@ function SoundManager(smURL, smID) {
     'autoPlay': false,        // enable playing of file as soon as possible (much faster if "stream" is true)
     'from': null,             // position to start playback within a sound (msec), default = beginning
     'loops': 1,               // how many times to repeat the sound (position will wrap around to 0, setPosition() will break out of loop when >0)
-    'onid3': 1,            // callback function for "ID3 data is added/available"
+    'onid3': null,            // callback function for "ID3 data is added/available"
     'onload': null,           // callback function for "load finished"
     'whileloading': null,     // callback function for "download progress update" (X of Y bytes received)
     'onplay': null,           // callback for "play" start
     'onpause': null,          // callback for "pause"
     'onresume': null,         // callback for "resume" (pause toggle)
-    'whileplaying': 1,     // callback during play (position update)
+    'whileplaying': null,     // callback during play (position update)
     'onposition': null,       // object containing times and function callbacks for positions of interest
     'onstop': null,           // callback for "user stop"
     'onfailure': null,        // callback function for when playing fails
