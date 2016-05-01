@@ -17,7 +17,7 @@ First install all of the dependencies.
 
 `sudo apt-get install autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm3 libgdbm-dev`
 
-** pg / postgres**
+**pg / postgres**
 `sudo apt-get install libpq-dev`
 
 **taglib-ruby**
