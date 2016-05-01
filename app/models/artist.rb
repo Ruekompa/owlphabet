@@ -15,15 +15,12 @@ class Artist < ActiveRecord::Base
 
  
   extend FriendlyId
-  friendly_id :slug_candidates, use: :slugged
+  friendly_id :name, use: [:slugged, :finders]
 
-  def slug_candidates
-    [
-      :name,
-      [:name, :city],
-      [:name, :street, :city],
-      [:name, :street_number, :street, :city]
-    ]
+  def should_generate_new_friendly_id?
+    name_changed? || super
   end
+
+
 
 end 
