@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 	def show
     @q = Project.search(params[:q])
     @projects =  @q.result.includes(:albums)
-    @project = Project.includes(:albums).find params[:id]
+    @project = Project.friendly.find params[:id]
     @albums = @project.albums.all
 	end
 
