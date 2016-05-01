@@ -1,0 +1,63 @@
+ <div class="section">
+ <div class="container white">
+  <div class="row">
+  <div class="col s12 m3 l3">
+  <img class="responsive-img materialboxed" src="<%= @album.cover_art_url(:thumb) %>">
+  </div>
+    <div class="col s12 m9 l9">
+    <div class="show-album-header">
+    <a class="btn-floating btn-large waves-effect waves-light red right show-play-album">
+    <i class="material-icons">play_arrow</i></a>
+ 	<span><h1 class="album-title"><%= @album.title %></h1> 
+  <a href="/projects/<%= @project.friendly_id %>" class="card-date black-text">
+  <%= @project.title %></a><br>
+  <a href="#" class="card-date"> <%= pluralize(@album.tracks.count, 'Song') %></a> &#8226; 
+  <a href="#" class="card-date">
+  <%= @album.release_date.strftime("%Y") %></a> 
+  </span>
+</div>
+</div>
+</div>
+
+<% if @tracks.empty?  %>
+ <h5 id="no-media">No Media Found</h5>
+<% else %>
+
+<div class="row">
+  <div class="col s12">
+   <ul class="collection">
+    <% @tracks.each do |media| %>            
+       <li class="collection-item avatar">  
+           <i class="large material-icons circle">drag_handle</i>
+            <%= link_to "#{media.title}", media.file_name.url, class: "collection-item flow-text" %>
+              <% t = media.duration %>
+             <p class="secondary-content black-text">
+          <%= Time.at(t).utc.strftime("%M:%S") %> 
+          </p>
+             <% end %>
+       </li>
+
+<% end %>
+ 	</ul>
+  <ul id="dropdown" class="dropdown-content">
+  <% %>
+  <li><a href="#!">Go to Artst</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+ 	</div>
+ 	</div>
+ 	</div>
+</div>
+
+
+ 	<script type="text/javascript">
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+  $('.parallax').parallax();
+  </script>
+
+
+
