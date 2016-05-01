@@ -26,6 +26,7 @@ First install all of the dependencies.
 `sudo apt-get install libtag1-dev`
 
 **ruby-sox**
+
 `sudo apt-get install libsox-fmt-all sox libchromaprint-dev`
 
 ## Bundle 
