@@ -1,5 +1,6 @@
 class Artists::RegistrationsController < Devise::RegistrationsController
 layout 'invite_pages', except: [:edit]
+layout 'manager', only: [:edit]
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
