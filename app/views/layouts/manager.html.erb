@@ -19,17 +19,17 @@
         <a href="/" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-         <li><a class="black-text" href="/projects"><i class="material-icons">library_music</i></a></li>
+         <li><a class="black-text" href="<%= projects_path %>"><i class="material-icons">library_music</i></a></li>
          <li><a class="dropdown-button black-text" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
       </ul>
     <ul id='dropdown1' class='dropdown-content'>
-     <li><a href="/artists/edit">Edit Account</a></li>
+     <li><a href="<%= edit_artist_registration_path %>">Edit Account</a></li>
      <hr>
     <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'white-text btn nav-signout' %></li> 
    
   </ul>
      <ul class="side-nav" id="mobile-nav">
-         <li><a class="black-text" href="/projects">Projects</a></li>
+         <li><a class="black-text" href="<%= projects_path %>">Projects</a></li>
       </ul>
     </div>
   </nav>

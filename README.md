@@ -83,3 +83,6 @@ Finish user interfaces.
 Tracking Credits
 
 Artist own and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
+
+## Finish to-do
+Finish to-do list. Not much else though. 
