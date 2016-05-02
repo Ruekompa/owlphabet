@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//=require jquery.pjax
 //= require jquery-ui/sortable
 //= require jquery-ui/effect-highlight
 //= require materialize-sprockets
@@ -19,7 +20,6 @@
 //= require dropzone
 //= require soundmanager2
 //= require bar-ui
-//=require jquery.pjax
 //=require social-share-button
 //=require rails.validations 
 //=require sort_tracks

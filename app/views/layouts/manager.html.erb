@@ -25,7 +25,7 @@
     <ul id='dropdown1' class='dropdown-content'>
      <li><a href="<%= edit_artist_registration_path %>">Edit Account</a></li>
      <hr>
-    <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'white-text btn nav-signout' %></li> 
+    <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, 'data-skip-pjax' => true, :class => 'white-text btn nav-signout' %></li> 
    
   </ul>
      <ul class="side-nav" id="mobile-nav">
