@@ -58,6 +58,6 @@ class Sessions::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def account_update_params
-    params.require(:artist).permit(:name, :email, :password, :password_confirmation, :current_password)
+    params.require(:artist).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password, :city)
   end
 end

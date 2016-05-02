@@ -7,7 +7,7 @@ layout 'invite_pages'
 def after_sign_in_path_for(resource)
   stored_location_for(resource) ||
     if resource.is_a?(Artist)
-      manager_path
+      admin_path
     else
       super
     end
@@ -30,6 +30,6 @@ end
 
   # You can put the params you want to permit in the empty array.
   def account_update_params
-    params.require(:artist).permit(:name, :email, :password, :password_confirmation, :current_password)
+    params.require(:artist).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 end

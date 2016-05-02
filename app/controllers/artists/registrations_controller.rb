@@ -1,6 +1,5 @@
 class Artists::RegistrationsController < Devise::RegistrationsController
 layout 'invite_pages', except: [:edit]
-layout 'manager', only: [:edit]
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
@@ -16,8 +15,8 @@ layout 'manager', only: [:edit]
 
   # GET /resource/edit
   def edit
- @q = Project.search(params[:q])
- @projects =  @q.result.includes(:albums)
+  @q = Project.search(params[:q])
+  @projects =  @q.result.includes(:albums)
   end
 
   # PUT /resource
@@ -65,12 +64,12 @@ layout 'manager', only: [:edit]
 
   # You can put the params you want to permit in the empty array.
   def configure_sign_up_params
-    params.require(:artist).permit(:name, :email, :password, :password_confirmation, :current_password)
+    params.require(:artist).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 
   # You can put the params you want to permit in the empty array.
   def account_update_params
-    params.require(:artist).permit(:name, :email, :password, :password_confirmation, :current_password)
+    params.require(:artist).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 
 end
