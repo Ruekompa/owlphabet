@@ -37,7 +37,7 @@
        <% if artist_signed_in? %> 
      <li><a href="/artists/edit">Edit Account</a></li>
      <hr>
-    <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, :class => 'white-text btn nav-signout' %></li> 
+    <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, 'data-skip-pjax' => true, :class => 'white-text btn nav-signout' %></li> 
      <% end %>
   </ul>
     </div>

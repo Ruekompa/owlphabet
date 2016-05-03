@@ -158,7 +158,7 @@ var appendContent = function(trackUrl, trackId) {
         position = ui.item.index();
         return $.ajax({
           type: 'POST',
-          url:  '/projects/<%= params[:project_id] %>/albums/<%= params[:album_id] %>/tracks/update_row_order',
+          url:  '/admin/projects/<%= params[:project_id] %>/albums/<%= params[:album_id] %>/tracks/update_row_order',
           dataType: 'json',
           data: {
             track: {
