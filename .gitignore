@@ -11,5 +11,5 @@
 /log/*
 !/log/.keep
 /tmp
-/uploads
+/uploads/
 /app/songs/
