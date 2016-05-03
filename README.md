@@ -34,10 +34,12 @@ First install all of the dependencies.
 ## Bundle 
 `bundle install`
 
-## Setup Databases 
+## Rake Databases 
 `rake db:create`
 
 `rake db:migrate`
+
+`rake db:reset`
 
 ## Start Puma Server
 `rails s`
