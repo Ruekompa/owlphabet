@@ -5,7 +5,7 @@
  	<div class="col s12">
 
  	<p style="padding-left: 1rem; padding-right: 1rem;">No Albums Found.</p>
- 	<a style="margin-bottom: 200px; margin-left: 1rem;" href="/admin/projects/<%= @project.slug %>/albums/new" class="btn red">New Album</a>
+ 	<a style="margin-bottom: 200px; margin-left: 1rem;" href="/admin/projects/<%= @project.slug %>/albums/new" class="btn blue-grey">New Album</a>
  	
  	</div>
  	</div>
@@ -20,7 +20,7 @@
 
           <div class="card-image waves-effect waves-block waves-light">
           <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator show-project-albums'), project_album_tracks_path(@project.friendly_id, g.friendly_id) %>
-          </div>
+          </div> 
 
           <div class="card-content">
         
