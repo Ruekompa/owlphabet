@@ -6,25 +6,29 @@
         <div class="row">
           <% slice.each do |g| %>
     <div class="col s12 m4">
-	   <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-       <%= link_to (image_tag (g.cover_photo.thumb.url), class: 'activator'), project_path(g.friendly_id) %>
-
-        </div>
-
-        <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"> <%= g.title.titleize %></span><br>
-        <a href="/admin/projects/<%= g.friendly_id %>/edit" class="black-text">Edit</a>
-        <a href="/projects/<%= g.friendly_id %>/albums" class="black-text">Albums</a>
-        </div>
-       </div>
-      </div>
+	     <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <%= link_to (image_tag (g.cover_photo.thumb.url), class: 'activator'), project_path(g.friendly_id) %>
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"><%= g.title.titleize %><i class="material-icons right">more_vert</i></span>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4"> <%= g.title.titleize %><i class="material-icons right">close</i></span>
+      <p> <a href="/admin/projects/<%= g.friendly_id %>/edit" class="black-text">Edit</a>
+        </p>
+        <p><a href="/admin/projects/<%= g.friendly_id %>/albums" class="black-text">Albums</a></p>
+    </div>
+  </div>
+         
+      </div> 
          <% end %>
     </div>
          <% end %>
     
 
-   </div>
-
+ </div>
  </div>
 
+ 
+           

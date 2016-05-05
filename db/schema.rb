@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502015827) do
+ActiveRecord::Schema.define(version: 20160503193902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160502015827) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
     t.string   "slug"
     t.string   "invitation_token"
     t.datetime "invitation_created_at"
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(version: 20160502015827) do
   add_index "artists", ["invitation_token"], name: "index_artists_on_invitation_token", unique: true, using: :btree
   add_index "artists", ["invitations_count"], name: "index_artists_on_invitations_count", using: :btree
   add_index "artists", ["invited_by_id"], name: "index_artists_on_invited_by_id", using: :btree
-  add_index "artists", ["name"], name: "index_artists_on_name", unique: true, using: :btree
   add_index "artists", ["reset_password_token"], name: "index_artists_on_reset_password_token", unique: true, using: :btree
   add_index "artists", ["slug"], name: "index_artists_on_slug", unique: true, using: :btree
 

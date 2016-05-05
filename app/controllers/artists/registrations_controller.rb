@@ -1,17 +1,26 @@
 class Artists::RegistrationsController < Devise::RegistrationsController
+
 layout 'invite_pages', except: [:edit]
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   def new
-  super
+    @artist = Artist.new
   end
 
   # POST /resource
-  # def create
-   
-  # end
+  def create
+    @artist = Artist.new(configure_sign_up_params)
+
+      if @artist.save 
+        flash[:notice] = 'Album created'
+        redirect_to admin_path
+      else
+        flash.now[:warning] = 'There were problems when trying to create a new Artist'
+        render :action => :new
+      end
+  end
 
   # GET /resource/edit
   def edit
@@ -21,7 +30,7 @@ layout 'invite_pages', except: [:edit]
 
   # PUT /resource
   # def update
-  #   super
+
   # end
 
   # DELETE /resource
@@ -45,6 +54,10 @@ layout 'invite_pages', except: [:edit]
     else
       super
     end
+  end
+
+  def after_update_path_for(resource)
+      admin_path
   end
 
    

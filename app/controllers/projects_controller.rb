@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
 
   def new
     @q = Project.search(params[:q])
+    @artist = current_artist.friendly_id
     @projects =  @q.result.includes(:albums)
     @project = Project.new 
   end
@@ -79,7 +80,7 @@ class ProjectsController < ApplicationController
     # end
       
     def project_params
-      params.require(:project).permit(:title, :cover_photo, :remove_cover_photo, :slug)
+      params.require(:project).permit(:title, :cover_photo, :remove_cover_photo, :slug, :artist_id)
     end
 
 
