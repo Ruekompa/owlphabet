@@ -1,7 +1,6 @@
 class Project < ActiveRecord::Base
-	has_many :artists
+	belongs_to :artist
 	has_many :albums
-	
 	has_many :tracks, :through => :albums
 
 	mount_uploader :cover_photo, CoverPhotoUploader
