@@ -1,7 +1,7 @@
 <% yield @q %>
 <div class="section albums">
 
-<div class="container">
+<div class="container" style="margin-bottom: 7rem;">
 <div class="row">
 
 <div class="right">
@@ -9,7 +9,7 @@
 </div>
 </div>
 
-    <% @projects.each_slice(4) do |slice| %> 
+    <% @projects.each_slice(3) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
     <div class="col s12 m4">
