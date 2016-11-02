@@ -80,7 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: Owlphabet_production
+  database: owlphabet_production
   username: owlphabet
   password: Kk292325244!?!!
   host: localhost
