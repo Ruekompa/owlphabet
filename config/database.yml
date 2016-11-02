@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: Owlphabet_production
-  username: Owlphabet
-  password: <%= ENV['OWLPHABET_DATABASE_PASSWORD'] %>
+  username: owlphabet
+  password: Kk292325244!?!!
+  host: localhost
