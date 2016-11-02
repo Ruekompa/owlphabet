@@ -1,5 +1,16 @@
  <%= form_for @project do |f| %>
-<section class="section">
+
+<div style="height: 200px;" class="admin_project grey lighten-2">
+                <div style="padding-top: 3.2rem;" class="row center">
+                <div class="col s12">
+                <%= f.file_field :cover_photo %>
+                <%= f.hidden_field :cover_photo_cache %>
+               
+               
+               </div>
+               </div>
+</div>
+
 <div class="container">
         <div class="col s12 m12">
           <div class="card">
@@ -12,15 +23,7 @@
      
              </div>
              </div>
-             <div class="row">
-               <div class="file-field input-field">
-                 <div class="btn blue-grey">
-                 <span>Project Cover</span>
-                <%= f.file_field :cover_photo %>
-                <%= f.hidden_field :cover_photo_cache %>
-                 </div>
-               </div>
-             </div>
+             
 
            <div class="row">
              <div class="input-field col s12">
@@ -42,6 +45,6 @@
       </div>
       <% end %>
 </div>
-</section>
+
 
 

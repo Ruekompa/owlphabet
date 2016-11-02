@@ -35,16 +35,14 @@
 <% else %>
  <h1 class="general-header"></h1>
 <div class="section white artwork">
-    <% @albums.each_slice(4) do |slice| %> 
+    <% @albums.each_slice(3) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
           <div class="col s12 m4 l4">
           <div class="card">
-
           <div class="card-image waves-effect waves-block waves-light">
           <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator show-project-albums'), music_project_album_path(@project.friendly_id, g.friendly_id) %>
           </div>
-
           <div class="card-content">
           <div style="padding: 0;" class="col s12 m9 l10">
           <span class="card-title activator grey-text text-darken-4 for-album-title"><%= g.title.titleize %>  
@@ -52,7 +50,7 @@
           </div>
           
           <span>
-          <a href="#" class="card-date"><%= @project.title %></a> &#8226; <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></span>
+          <a href="#" class="card-date"></a>  <a href="#" class="card-date"><%= g.release_date.strftime("%Y") %></a></span>
 
           </div>
 
