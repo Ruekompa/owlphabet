@@ -31,6 +31,6 @@ Rails.application.routes.draw do
   end
 end
 
- get '/songs/:id/:basename.:extension' => 'tracks#download'
+ get 'uploads/songs/:id/:basename.:extension' => 'tracks#download'
 
 end
