@@ -5,11 +5,11 @@ class SongUploader < CarrierWave::Uploader::Base
   storage :file
  
   def store_dir
-  "uploads/songs/#{model.id}"
+  "../app/songs/#{model.id}"
   end
 
   def cache_dir
-  "uploads/songs/tmp/cache/#{model.id}"
+  "../app/songs/tmp/cache/#{model.id}"
   end
   
 
