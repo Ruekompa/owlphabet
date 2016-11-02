@@ -147,7 +147,7 @@
 
 
 <% Track.all.each do |a| %>
-<li><%= link_to File.basename(a.title), "/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>
+<li><%= link_to File.basename(a.title), "/uploads/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>
 
 <% end %>
 

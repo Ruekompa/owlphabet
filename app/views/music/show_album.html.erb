@@ -96,7 +96,7 @@
     $("a.play_album_as_list").on('click',function(e){
         <% unless @tracks.nil? %>
         <% @tracks.each do |a| %>
-        $(".sm2-playlist-bd").append('<li><%= link_to File.basename("#{a.title}"), "/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
+        $(".sm2-playlist-bd").append('<li><%= link_to File.basename("#{a.title}"), "/uploads/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
         <% end %>
                  window.sm2BarPlayers[0].actions.play(0);
         <% end %>
