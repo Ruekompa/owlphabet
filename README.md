@@ -46,24 +46,6 @@ First install all of the dependencies.
 
 Try rake routes to see a list of URLS, or checkout the config/routes.rb file to see option. Not everything has a button yet!
 
-## Committing
-Please try to commit changes to owlphabet-dev branch.
-
-# To-do
-
-## Data
-Uniquness of names for everything, and implement the different ways to handle each scenario (i.e artist names, project names if same use plus city, album name that are the same append project and so forth) 
-
-## For listeners
-
-### UI
-
-
-**Layout**
-`app/views/layouts/application.html.erb/`
-
-**Loading playlist**
-`/app/views/music/show_album.html.erb`
 
 
 ## For Musicians
