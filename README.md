@@ -57,7 +57,9 @@ Finish user interfaces for backend to make it easier for navigation.
 
 ### To-do 
 1. Secure uploads for non-downloading.
-2. Tracking Credits - Artist own and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
+2. Tracking Credits - Artist owns and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
+
+Display artist page with related projects
 
 ### Issues
 1. On production only, when users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
