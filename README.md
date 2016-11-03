@@ -77,16 +77,12 @@ Duration not being loaded with new playlist (soundManager)
 
 ### UI
 
-Finish user interfaces.
+Finish user interfaces for backend to make it easier for navigation.
 
-### Backend
 
-Tracking Credits
-
-Artist own and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
-
-## Finish to-do
-Finish to-do list. Not much else though. 
+### To-do 
+1. Secure uploads for non-downloading.
+2. Tracking Credits - Artist own and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
 
 ### Issues
 1. When users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
@@ -100,3 +96,6 @@ Finish to-do list. Not much else though.
 5. Need help caching and optimizing server – Really Slow!
 
 7. Have to make layouts at little easier to navigate. I was trying to build the whole thing at once and decided to incrementally start piecing it together.
+
+8. Secure uploads for non-downloading.
+
