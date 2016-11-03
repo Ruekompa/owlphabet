@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.friendly.find params[:id]
       if @project.update_attributes project_params
-        flash[:notice] = 'Pro has been updated'
+        flash[:notice] = 'Project has been updated'
         redirect_to projects_path
       else
         flash.now[:warning] = 'There were problems when trying to update this Profile'
