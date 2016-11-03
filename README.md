@@ -72,7 +72,6 @@ Duration not being loaded with new playlist (soundManager)
 **Loading playlist**
 `/app/views/music/show_album.html.erb`
 
-The duration stopped loading after I switched from public directory to storing the files inside of the app, for the purposes of *Secure Uploading* via carrierwave. SoundManager2 uses flash to estimate duration. I have duration save in DB, which we might load manually. Or see why we can't set the position with the out-of-the-box feature. I don't know. To-do! Otherwise, it seems to play music.
 
 ## For Musicians
 
@@ -88,3 +87,16 @@ Artist own and or can belong to a project through track credits. Have a discussi
 
 ## Finish to-do
 Finish to-do list. Not much else though. 
+
+### Issues
+1. When users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
+
+2. Multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
+
+3. When User click play on a new Album it adds to the Playlist that exists instead of refreshing a new list
+
+4. Had to disable search until I get the page to refresh properly.
+
+5. Need help caching and optimizing server – Really Slow!
+
+7. Have to make layouts at little easier to navigate. I was trying to build the whole thing at once and decided to incrementally start piecing it together.
