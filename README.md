@@ -46,9 +46,9 @@ First install all of the dependencies.
 
 Try rake routes to see a list of URLS, or checkout the config/routes.rb file to see option. Not everything has a button yet!
 
+### Puma
 
-
-## For Musicians
+Change the puma conf file when working in developement, the current file in repo is for production
 
 ### UI
 
@@ -60,9 +60,9 @@ Finish user interfaces for backend to make it easier for navigation.
 2. Tracking Credits - Artist own and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
 
 ### Issues
-1. When users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
+1. On production only, when users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
 
-2. Multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
+2. On production only, multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
 
 3. When User click play on a new Album it adds to the Playlist that exists instead of refreshing a new list
 
