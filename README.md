@@ -58,13 +58,6 @@ Uniquness of names for everything, and implement the different ways to handle ea
 
 ### UI
 
-**Duration**
-Duration not being loaded with new playlist (soundManager) 
-
-**Relevant for problem File Locations**
-
-**Assets**
-`/app/assets/`
 
 **Layout**
 `app/views/layouts/application.html.erb/`
