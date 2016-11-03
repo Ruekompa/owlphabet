@@ -74,3 +74,4 @@ Finish user interfaces for backend to make it easier for navigation.
 
 8. Secure uploads for non-downloading.
 
+9. Taglib was working, adding cover art and track details, but since on a new system it doesn't seen to be working. This relies on taglib-ruby and the conversion and tagging can be found in /app/uploaders/song_uploader.rb
