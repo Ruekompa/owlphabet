@@ -77,3 +77,50 @@ Display artist page with related projects
 8. Secure uploads for non-downloading.
 
 9. Taglib was working, adding cover art and track details, but since on a new system it doesn't seen to be working. This relies on taglib-ruby and the conversion and tagging can be found in /app/uploaders/song_uploader.rb
+
+
+
+# Owlphabet Music Business Model
+
+A​ new competitive marketplace  connecting end­user subscribers to content and providing 
+relationships through licenses between musicians, visual content makers and advertisers. 
+ 
+## Subscription Streaming 
+2 options: ​
+Paid Subscription or Advertisements – Existing platforms such as Spotify prove that 
+this model can work. 
+ 
+## Licensing 
+Providing relationships through licenses to musicians, visual content makers and advertisers. 
+ 
+### Visual Content Makers 
+For Media sharing websites such as ​
+Youtube , ​
+ Owlphabet provides 2 main categories 
+of license types: Content creator or Advertiser each with a subset of license types. 
+ 
+#### Content Creator:​
+ Feature­length, short, or series/episodic 
+ 
+#### Advertiser: ​
+Corresponding license based on the ​content creator license type (Feature, short, series/episodic) 
+ 
+ 
+## Merchandise 
+Basic e­commerce to sell physical goods such as albums, t­shirts, and other types of 
+memorabilia. 
+ 
+# Market Trends 
+Technology trends have reduced costs on instruments, equipment and software, where now 
+there exist more musicians with the ability and drive to create award­winning works. 
+ 
+## Indie Market 
+Indie markets have had a boom in growth in recent years due to many factors. While the initial 
+marketing initiative will be towards independent creators in music and film, Owlphabet avoids 
+basing license cost on content/film budget brackets and instead bases license cost on length of 
+content that the music will be applied to.  
+ 
+# Competition 
+No direct competition to the platform as a whole; however, this doesn’t include streaming only 
+services or the current music license organizations, which this platform has the potential to 
+compete within both existing spaces. 
