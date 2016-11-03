@@ -59,7 +59,7 @@ class AlbumsController < ApplicationController
     @tracks = @album.tracks
     
       if @album.update_attributes album_params
-        flash[:notice] = 'Profile has been updated'
+        flash[:notice] = 'Album has been updated'
         redirect_to project_albums_path
       else
         flash.now[:warning] = 'There were problems when trying to update this Profile'
