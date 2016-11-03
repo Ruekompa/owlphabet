@@ -32,7 +32,8 @@
           </div>
           <div class="card-reveal">
       <span class="card-title grey-text text-darken-4"> <%= g.title.titleize %><i class="material-icons right">close</i></span>
-      <p> <a href="<%= project_album_path(@project.friendly_id, g.friendly_id) %>/edit" class="black-text">Edit</a>
+      <p><a class="black-text" href="<%= project_album_tracks_path(@project.friendly_id, g.friendly_id) %>">Add Tracks </a></p>
+       <p> <a href="<%= project_album_path(@project.friendly_id, g.friendly_id) %>/edit" class="black-text">Edit</a>
         </p>
     </div>
          </div>
