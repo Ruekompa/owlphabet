@@ -112,7 +112,7 @@ memorabilia.
  
 # Market Trends 
 Technology trends have reduced costs on instruments, equipment and software, where now 
-there exist more musicians with the ability and drive to create award­winning works. 
+there exist more musicians with the ability and drive to create award­ winning works. 
  
 ## Indie Market 
 Indie markets have had a boom in growth in recent years due to many factors. While the initial 
