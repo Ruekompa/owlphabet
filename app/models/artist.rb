@@ -5,7 +5,7 @@ class Artist < ActiveRecord::Base
            :recoverable, :rememberable, :trackable, :validatable, :invitable         
   has_many :projects
   has_many :albums, dependent: :destroy
-  has_many :albums, :through => :projects
+  has_many :albums, :through => :projects, dependent: :destroy
 
   #TO DO Set up credit system through some acts as credible model to assign to artists 
   # has_many :credits

@@ -47,12 +47,11 @@
 
             <div class="card-action">
              
-              <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
-
-
-               <%= form_tag @albums, method: :delete do %>
-             <%= submit_tag "Delete Album", id: "delete", class: "btn black" %>
+              <%= form_tag @albums, method: :put do %>
+             <%= submit_tag "Update Album", id: "update_album", class: "btn red" %>
             <% end %>
+
+              <td><%= link_to 'Destroy Album', project_album_path(), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn black" %></td>
             </div>
           
        </div>

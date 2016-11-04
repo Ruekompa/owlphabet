@@ -4,10 +4,9 @@
 <div class="container">
 <% if @projects.empty? %>
  <p style="padding-left: 1rem; padding-right: 1rem;">No Projects Found.</p>
-  <a style="margin-bottom: 200px; margin-left: 1rem;" href="/admin/projects/new" class="btn red">New Project</a>
+ <a style="margin-bottom: 1rem;" href="/admin/projects/new" class="btn red">Add Project</a>
 <% else %>
-
- <a style="margin-bottom: 1rem; margin-left: 1rem;" href="/admin/projects/new" class="btn red">New Project</a>
+<a style="margin-bottom: 1rem;" href="/admin/projects/new" class="btn red">Add Project</a>
     <% @projects.each_slice(3) do |slice| %> 
         <div class="row">
           <% slice.each do |g| %>
