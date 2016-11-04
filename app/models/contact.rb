@@ -14,7 +14,7 @@ class Contact < MailForm::Base
   def headers
     {
       :subject => "Owlphabet Invitation Request",
-      :to => "russell@signalmtn.io",
+      :to => "support@owlphabet.com",
       :from => %("#{name}" <#{email}>)
     }
   end
