@@ -66,18 +66,13 @@ Display artist page with related projects
 
 2. On production only, multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
 
-3. When User click play on a new Album it adds to the Playlist that exists instead of refreshing a new list
+3. Had to disable search until I get the page to refresh properly.
 
-4. Had to disable search until I get the page to refresh properly.
+4. Need help caching and optimizing server – Really Slow!
 
-5. Need help caching and optimizing server – Really Slow!
+5. Secure uploads for non-downloading.
 
-7. Have to make layouts at little easier to navigate. I was trying to build the whole thing at once and decided to incrementally start piecing it together.
-
-8. Secure uploads for non-downloading.
-
-9. Taglib was working, adding cover art and track details, but since on a new system it doesn't seen to be working. This relies on taglib-ruby and the conversion and tagging can be found in /app/uploaders/song_uploader.rb
-
+6. Firefox video on homepage. Haven't test IE.  
 
 
 # Owlphabet Music Business Model
