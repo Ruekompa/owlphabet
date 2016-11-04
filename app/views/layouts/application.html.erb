@@ -46,8 +46,10 @@
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
     
-      <li><a style="font-weight: 400;" class="black-text" href="/music"><i class="material-icons">library_music</i></a></li>  
-         <!-- <li><a class="dropdown-button black-text" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li> -->
+      <li><a style="font-weight: 400;" class="black-text" href="/music"><i class="material-icons">library_music</i></a></li>
+      <% if artist_signed_in? %>  
+         <li><a class="dropdown-button black-text" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
+         <% end %>
      </nav>
       </ul>
      <ul class="side-nav" id="mobile-nav">
@@ -55,6 +57,7 @@
       </ul>
       <ul id='dropdown1' class='dropdown-content'>
        <% if artist_signed_in? %> 
+       <li><a href="/admin">Admin</a></li>
      <li><a href="/artists/edit">Edit Account</a></li>
      <hr>
     <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, 'data-skip-pjax' => true, :class => 'white-text btn nav-signout' %></li> 
