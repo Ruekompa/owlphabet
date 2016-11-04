@@ -62,6 +62,8 @@ Finish user interfaces for backend to make it easier for navigation.
 Display artist page with related projects
 
 ### Issues
+1a. Configuring the rest of fog for google storage 
+
 1. On production only, when users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
 
 2. On production only, multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
