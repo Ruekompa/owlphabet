@@ -36,11 +36,11 @@ gem 'mini_magick'
 
 gem 'net-ssh'
 
-gem "fog"
+gem "fog-google"
 
-gem 'fog-google'
+gem "google-api-client"
 
-gem 'google-api-client', '< 0.9', '>= 0.6.2'
+gem "mime-types"
 
 gem "carrierwave", :git => 'git://github.com/carrierwaveuploader/carrierwave'
 
