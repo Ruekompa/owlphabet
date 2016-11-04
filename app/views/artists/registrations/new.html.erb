@@ -17,7 +17,14 @@
 
      <div class="row">
    <div class="input-field col s12">
-    <%= f.text_field :first_name, autofocus: true %>
+  <%= text_field_tag "artist[invite_code]" %>
+  <%= f.label :invite_code, autofocus: true %>
+   </div>
+   </div>
+
+     <div class="row">
+   <div class="input-field col s12">
+    <%= f.text_field :first_name, autofocus: false %>
     <%= f.label :first_name %>
    </div>
 </div>

@@ -1,4 +1,5 @@
 class Artists::RegistrationsController < Devise::RegistrationsController
+before_action :permit_invite_code
 
 layout 'invite_pages', except: [:edit]
 # before_filter :configure_sign_up_params, only: [:create]
@@ -47,6 +48,10 @@ layout 'invite_pages', except: [:edit]
   #   super
   # end
 
+  def permit_invite_code
+  devise_parameter_sanitizer.for(:sign_up) << :invite_code
+ end
+
   def after_sign_in_path_for(resource)
   stored_location_for(resource) ||
     if resource.is_a?(Artist)
@@ -77,7 +82,7 @@ layout 'invite_pages', except: [:edit]
 
   # You can put the params you want to permit in the empty array.
   def configure_sign_up_params
-    params.require(:artist).permit(:first_name, :last_name, :email, :password, :password_confirmation, :current_password)
+    params.require(:artist).permit(:invite_code, :first_name, :last_name, :email, :password, :password_confirmation, :current_password)
   end
 
   # You can put the params you want to permit in the empty array.

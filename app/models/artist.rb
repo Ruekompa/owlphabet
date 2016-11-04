@@ -12,7 +12,14 @@ class Artist < ActiveRecord::Base
   # has_many :tracks, :through => :credits
 
 
+attr_accessor :invite_code
+validate :invite_code_valid, :on => :create
 
+ def invite_code_valid
+  unless self.invite_code == "owlphabetsoup"
+    self.errors.add(:invite_code, "invalid.  Ask support@owlphabet.com or try again.")
+  end
+end
  
   extend FriendlyId
  friendly_id :slug_candidates, use: :slugged
