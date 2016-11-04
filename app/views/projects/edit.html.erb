@@ -31,10 +31,13 @@
         
           </div>
             <div class="card-action">
-              <%= f.submit 'Submit', :class => "btn btn-waves black" %>
-                 <%= form_tag @project, method: :delete do %>
-             <%= submit_tag "Delete", id: "delete", class: "btn black" %>
+              <%= form_tag @project, method: :put do %>
+             <%= submit_tag "Update Project", id: "update_project", class: "btn red" %>
             <% end %>
+
+              <td><%= link_to 'Destroy Project', project_path(), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn black" %></td>
+           
+       
             </div>
           </div>
         </div>
