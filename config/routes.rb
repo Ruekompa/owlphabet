@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   resources "contacts", only: [:new, :create]
 
-  # get 'invite/request' => 'invite_requests#select'
-  # get 'invite/artist' => 'invite_requests#new'
+  get 'invite/request' => 'invite_requests#select'
+  get 'invite/artist' => 'invite_requests#new'
   # get 'invite/listener' => 'invite_requests#user_invite'
 
 
