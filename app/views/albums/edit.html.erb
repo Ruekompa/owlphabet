@@ -48,6 +48,11 @@
             <div class="card-action">
              
               <%= f.submit 'Submit', :class => "btn btn-waves red accent-2" %>
+
+
+               <%= form_tag @albums, method: :delete do %>
+             <%= submit_tag "Delete Album", id: "delete", class: "btn black" %>
+            <% end %>
             </div>
           
        </div>

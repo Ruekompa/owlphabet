@@ -68,11 +68,10 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
-      @artist = Artist.find(params[:artist_id])
-  	  @album = Album.find params[:id]
+  	  @album = Album.friendly.find params[:id]
       @album.destroy
       flash[:notice] = 'Album Obliterated'
-      redirect_to :index
+      redirect_to projects_path
     end
 
     # def set_gallery
