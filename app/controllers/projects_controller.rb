@@ -56,7 +56,7 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find params[:id]
       @project.destroy
       flash[:notice] = 'Project Obliterated'
-      redirect_to :index
+      redirect_to projects_path
     end
 
 

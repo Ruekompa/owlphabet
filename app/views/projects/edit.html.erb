@@ -32,8 +32,9 @@
           </div>
             <div class="card-action">
               <%= f.submit 'Submit', :class => "btn btn-waves black" %>
-           
-       
+                 <%= form_tag @project, method: :delete do %>
+             <%= submit_tag "Delete", id: "delete", class: "btn black" %>
+            <% end %>
             </div>
           </div>
         </div>
