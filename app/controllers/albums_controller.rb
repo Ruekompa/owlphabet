@@ -35,7 +35,7 @@ class AlbumsController < ApplicationController
 
   	  if @album.save 
         flash[:notice] = 'Album created'
-        redirect_to project_albums_path
+        redirect_to @project
       else
         flash.now[:warning] = 'There were problems when trying to create a new Artist'
         render :action => :new
@@ -60,7 +60,7 @@ class AlbumsController < ApplicationController
     
       if @album.update_attributes album_params
         flash[:notice] = 'Album has been updated'
-        redirect_to project_albums_path
+        redirect_to @project
       else
         flash.now[:warning] = 'There were problems when trying to update this Profile'
         render :action => :edit
@@ -68,10 +68,11 @@ class AlbumsController < ApplicationController
     end
 
     def destroy
+     @project = Project.friendly.find params[:project_id]
   	  @album = Album.friendly.find params[:id]
       @album.destroy
       flash[:notice] = 'Album Obliterated'
-      redirect_to projects_path
+      redirect_to @project
     end
 
     # def set_gallery
