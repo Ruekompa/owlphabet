@@ -44,7 +44,7 @@ config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-  :user_name => 'russell@signalmtn.io',
+  :user_name => 'russell@owlphabet.com',
   :password => 'Kk292325244!?!!',
   :domain => 'gmail.com',
   :address => 'smtp.gmail.com',
