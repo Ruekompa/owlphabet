@@ -72,9 +72,7 @@ Display artist page with related projects
 
 4. Need help caching and optimizing server – Really Slow!
 
-5. Secure uploads for non-downloading.
-
-6. Firefox video on homepage. Haven't test IE.  
+5. Secure uploads for non-downloading.  
 
 
 # Owlphabet Music Business Model
