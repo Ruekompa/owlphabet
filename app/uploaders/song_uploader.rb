@@ -1,4 +1,5 @@
 class SongUploader < CarrierWave::Uploader::Base
+  
   require 'taglib'
   include CarrierWave::Audio
 
