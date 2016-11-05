@@ -12,9 +12,10 @@
     </ul>
    </div>
     <div class="col s12">
-   <div class="center">
- 	<h1 class="project-show-title"><%= @project.title %></h1>
- 	</div>
+
+ 	<h3 class="project-show-title center"><%= @project.title %></h3>
+  <p class="flow-text grey-text text-darken-2" style="text-align: right; margin-right: 6rem;"><%= pluralize(@project.albums.count, 'Album') %></p>
+
     </div>
   </div>
 </div>
