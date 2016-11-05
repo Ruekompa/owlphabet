@@ -24,8 +24,8 @@
 
    
 
- 	<span><h1 class="album-title"><%= @album.title %></h1> 
-  <a href="/music/projects/<%= @project.friendly_id %>" class="card-date black-text">
+ 	<span><h4 class="album-title"><%= @album.title %></h4> 
+  <a href="/music/projects/<%= @project.friendly_id %>" class="flow-text black-text">
   <%= @project.title %></a><br>
   <a href="#" class="card-date">
   <%= @album.release_date.strftime("%Y") %>
