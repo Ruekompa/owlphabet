@@ -71,7 +71,9 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 4. Need help caching and optimizing server – Really Slow!
 
-5. Secure uploads for non-downloading.  
+5. Secure uploads for non-downloading.
+
+6. pjax SSL issues causing cross domain scripting issues  
 
 
 # Owlphabet Music Business Model
