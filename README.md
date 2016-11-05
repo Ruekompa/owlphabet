@@ -46,20 +46,19 @@ First install all of the dependencies.
 
 Try rake routes to see a list of URLS, or checkout the config/routes.rb file to see option. Not everything has a button yet!
 
-### Puma
-
-Change the puma conf file when working in developement, the current file in repo is for production
+### To-do 
 
 ### UI
 
-Finish user interfaces for backend to make it easier for navigation.
+1. Finish user interfaces for backend to make it easier for navigation
 
+2. Need to make a better track uploader!
 
-### To-do 
+### Backend
+
 1. Secure uploads for non-downloading.
 2. Tracking Credits - Artist owns and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
 
-Display artist page with related projects
 
 ### Issues
 1a. Configuring the rest of fog for google storage 
