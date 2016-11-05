@@ -98,7 +98,7 @@
 <% end %> 
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Cancel</a>
+      <a href="<%= project_album_tracks_path %>" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
     </div>
   </div>
 
@@ -117,7 +117,7 @@ $(function() {
     var _this = this;
     appendContent(responseText.file_name.url, responseText.id);
     $(function(){
-     $('#modal1').closeModal();
+     // $('#modal1').closeModal();
      $('div.lean-overlay').remove();
     });
   });
