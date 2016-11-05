@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(params[:contact])
     @contact.request = request
     if @contact.deliver && @contact.valid?
-      redirect_to :back, :notice => "Thanks! We'll Catch You Later!"
+      redirect_to :back, :notice => "Thanks for your interest!"
     else
       redirect_to :back, :alert => "Could Not Send!"
     end
