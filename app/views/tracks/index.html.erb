@@ -55,9 +55,10 @@
        <table class="highlight edit-tracks-index" id="sortable">
       <thead>
           <tr >
+          <th data-field="id">Reorder</th>
               <th data-field="id">#</th>
               <th data-field="name">Title</th>
-              <th data-field="price"></th>
+              <th data-field="reorder"></th>
           </tr>
         </thead>
  
@@ -65,7 +66,7 @@
           <% @tracks.each.with_index(1) do |media, index| %>
           
           <tr data-item-id=<%= "#{media.id}" %> class="item">
-      
+            <td><i class="material-icons">&#xE8FE;</i></td>
             <td><%= index %></td>
             <td> <%= media.title %> </td>
             <td><p><%= check_box_tag "tracks[]", media.id, false, :id => "#{media.id}" %>
