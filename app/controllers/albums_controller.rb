@@ -75,6 +75,10 @@ class AlbumsController < ApplicationController
       redirect_to @project
     end
 
+    def tag_cloud
+    @tags = Album.tag_counts_on(:genres)
+    end
+
     # def set_gallery
     #   @album = profile.friendly.find(params[:artist_id])
     # end
