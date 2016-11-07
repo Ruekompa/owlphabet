@@ -1,8 +1,8 @@
 class MusicController < ApplicationController
 	def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
-    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 8)
-
+    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page])
+    @genres = Album.tag_counts_on(:genres)
 	end
 
 	def show_project
@@ -37,7 +37,9 @@ class MusicController < ApplicationController
     render 'index'
     end
 
-    
+    def tag_cloud
+    @genres = Album.tag_counts_on(:tags)
+   end
 
 
 end

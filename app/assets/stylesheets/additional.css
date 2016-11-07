@@ -298,3 +298,29 @@ a.white-text.btn.nav-signout:hover {
 li.drop-btn-effects:hover {
     background-color: #fff !important;
 }
+
+
+/*pagination*/
+em.current {
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    line-height: 30px;
+    border-radius: 2px;
+    text-align: center;
+    background-color: orange;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    vertical-align: middle;
+    z-index: 1;
+    will-change: opacity, transform;
+    transition: all .3s ease-out;
+    cursor: default;
+    color: #999;
+    font-style: normal;
+}

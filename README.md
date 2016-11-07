@@ -54,6 +54,10 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 2. Need to make a better track uploader!
 
+3. Pagination link renderer
+
+4. Finish tag cloud links to populate. Code block is commented out views/music/index.html.erb
+
 ### Backend
 
 1. Secure uploads for non-downloading.
