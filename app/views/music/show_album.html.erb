@@ -60,7 +60,7 @@
           <tr data-item-id=<%= "#{media.id}" %> class="item">
       
             <td style="padding-left: 1rem;"><%= index %></td>
-            <td><p class="flow-text"><%= media.title %></p></td>
+            <td class="play_track"><p class="flow-text"><%= media.title %></p></td>
             <% t = media.duration %>
             <td><%= Time.at(t).utc.strftime("%M:%S") %> </td>
            </tr>     
@@ -103,4 +103,17 @@
     });
 });
 </script>
+
+<!-- <script type="text/javascript">
+  $(document).ready(function(){
+    $("td.play_track").on('click',function(e){
+        <% unless @tracks.nil? %>
+        <% @tracks.reverse_each do |a| %>
+        $(".sm2-playlist-bd").prepend('<li><%= link_to File.basename("#{a.title}"), "/uploads/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
+        <% end %>
+                 window.sm2BarPlayers[0].actions.play($('.item').eq(0).data('item-id'));
+        <% end %>
+    });
+});
+</script> -->
 
