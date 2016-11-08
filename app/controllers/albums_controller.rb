@@ -7,7 +7,7 @@ class AlbumsController < ApplicationController
     @q = Project.search(params[:q])
     @projects =  @q.result.includes(:albums)
     @project = Project.friendly.find params[:project_id]
-    @albums = @project.albums.all
+    @albums = @project.albums.order("release_date DESC")
 	end
 
 	def show
