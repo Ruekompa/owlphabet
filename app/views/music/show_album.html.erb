@@ -38,6 +38,9 @@
    <a href="#" class="card-date">
   <%= @album.genre_list.to_s.titleize %></a> 
   </span>
+    <span class="right">
+      <a class='dropdown-button btn-large btn-floating circle transparent more' data-activates='dropdown2'><i class="material-icons black-text large">&#xE5D4;</i></a>
+          </span>
 </div>
 </div>
 </div>
@@ -66,18 +69,15 @@
            </tr>     
          
                <% end %>
-                  
+                
                  </tbody>
                 </table>
 <% end %>
 
-  <!-- <ul id="dropdown" class="dropdown-content">
+  <ul id="dropdown2" class="dropdown-content">
   <% %>
-  <li><a href="#!">Go to Artst</a></li>
-  <li><a href="#!">two</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">three</a></li>
-</ul> -->
+  <li><a href="/music/projects/<%= @project.friendly_id %>">Go to Artst</a></li>
+</ul>
  	</div>
  	</div>
  	</div>
@@ -90,7 +90,18 @@
   });
   $('.parallax').parallax();
   </script>
-
+<script type="text/javascript">
+   $('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: false, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'left' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+</script>
 <script type="text/javascript">
   $(document).ready(function(){
     $("a.play_album_as_list").on('click',function(e){
