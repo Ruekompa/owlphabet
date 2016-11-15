@@ -1,0 +1,56 @@
+<div class="section albums">
+<div class="container" style="margin-bottom: 7rem;">
+<div class="row">
+	<!--  <div class="left">
+<% tag_cloud(@genres, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+  <%= link_to tag.name, { :id => tag.name }, :class => css_class %>
+<% end %>
+</div> -->
+<div class="left">
+<h4>Albums by release date</h4>
+</div>
+</div>
+<% if @albums.empty? %>
+ 	<div class="row">
+ 	<div class="col s12">
+
+ 	<p style="padding-left: 1rem; padding-right: 1rem;">No Albums Found.</p>
+ 	
+ 	</div>
+ 	</div>
+<% else %>
+ <h1 class="general-header"></h1>
+<div class="section white artwork">
+    <% @albums.each_slice(3) do |slice| %> 
+        <div class="row">
+          <% slice.each do |g| %>
+
+        <div class="col s12 m4 l4">
+          <div class="card waves-effect waves-block waves-light">
+            <div class="card-image">
+             <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), music_project_album_path(g.project.friendly_id, g.friendly_id) %>
+              <!-- <span class="card-title">Card Title</span> -->
+            </div>
+            <div class="card-content ">
+              <p class="flow-text"><%= g.title.titleize %></p>
+            </div>
+            <div class="card-action right">
+          <%= g.release_date.strftime("%Y") %>
+            </div>
+          </div>
+        </div>
+  
+     <% end %>
+</div>
+<% end %>
+</div>
+<% end %>
+
+
+       
+   </div>
+ </div>
+ 
+
+
+      

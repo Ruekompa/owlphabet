@@ -12,16 +12,16 @@ class MusicController < ApplicationController
      @albums = @project.albums.order("release_date DESC")
 	end
 
-	def albums
-	 @q = Project.search(params[:q])
+	def albums_index
+     @q = Project.search(params[:q])
      @projects =  @q.result.includes(:albums)
-     @project = Project.includes(:albums).find params[:id]
-     @albums = @project.albums.all	
+     @albums = Album.includes(:project).order("release_date DESC").paginate(:page => params[:page])
+     @genres = Album.tag_counts_on(:genres)	
 	end
 
 	def show_album
      @q = Project.search(params[:q].try(:merge, m: 'or'))
-     @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page], :per_page => 8)
+     @projects =  @q.result.includes(:albums).includes(:tracks).order("title").paginate(:page => params[:page])
      @project = Project.friendly.find params[:project_id]
  	 @album = Album.find params[:album_id]
      @tracks = @album.tracks.order(:row_order)
@@ -39,7 +39,7 @@ class MusicController < ApplicationController
     end
 
     def tag_cloud
-    @genres = Album.tag_counts_on(:tags)
+    @genres = Album.tag_counts_on(:genres)
    end
 
 

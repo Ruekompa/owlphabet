@@ -103,17 +103,18 @@
     });
 });
 </script>
-
-<!-- <script type="text/javascript">
+<!-- 
+ <script type="text/javascript">
   $(document).ready(function(){
     $("td.play_track").on('click',function(e){
         <% unless @tracks.nil? %>
-        <% @tracks.reverse_each do |a| %>
-        $(".sm2-playlist-bd").prepend('<li><%= link_to File.basename("#{a.title}"), "/uploads/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true %></li>'),
+        <% @tracks.reverse.each_with_index do |a, index| %>
+        $(".sm2-playlist-bd").prepend('<li><%= link_to File.basename("#{a.title}"), "/uploads/songs/#{a.id}/#{File.basename(a.file_name.mp3.url)}", 'data-skip-pjax' => true, "data-item-id" => "#{a.id}" %></li>'),
+      
+                 window.sm2BarPlayers[0].actions.play(<%= index %>);
         <% end %>
-                 window.sm2BarPlayers[0].actions.play($('.item').eq(0).data('item-id'));
         <% end %>
     });
 });
-</script> -->
+</script> 
 
