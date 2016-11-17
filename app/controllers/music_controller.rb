@@ -16,7 +16,7 @@ class MusicController < ApplicationController
      @q = Project.search(params[:q])
      @projects =  @q.result.includes(:albums)
        if params[:genres].present?
-        @albums = Album.tagged_with(params[:genres])
+        @albums = Album.tagged_with(params[:genres]).order("release_date DESC").paginate(:page => params[:page])
        else
      @albums = Album.includes(:project).order("release_date DESC").paginate(:page => params[:page])
      end
