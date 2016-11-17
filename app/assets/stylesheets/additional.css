@@ -328,3 +328,17 @@ em.current {
 a.dropdown-button.btn-large.btn-floating.circle.transparent.more {
     box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0), 0 0px 0px 0 rgba(0, 0, 0, 0.0);
 }
+
+a.css3 {
+    font-weight: 300;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #26a69a;
+    border-radius: 2px;
+    padding: .3rem;
+}
+
+
+.collapsible-body.genres {
+    padding: 1rem;
+}

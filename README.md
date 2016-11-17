@@ -56,7 +56,7 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 3. Pagination link renderer
 
-4. Finish tag cloud. Tag names populate; however, the links do not sort/result. Code block is commented out views/music/index.html.erb
+4. Finish tag cloud. Tag names populate; however, the links do not sort/result. Code block is commented out views/music/index.html.erb and views/music/album_index
 
 ### Backend
 
