@@ -64,17 +64,13 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 ### Issues
 1a. Configuring the rest of fog for google storage 
 
-1. On production only, when users are uploading pjax doesn’t work for other users (allowing users to seamlessly play while browsing)
+2. Had to disable search, otherwise page refreshes, or fix $.pjax.submit(event, '#search_filter') where the results can properly display.
 
-2. On production only, multiple uploads take a while and the uploader disapears. They still continue but it might be easier to  do 1 or 2 at a time for now so it isn’t confusing to know when they succeed
+3. Need help caching and optimizing server – Really Slow!
 
-3. Had to disable search, otherwise page refreshes, or fix $.pjax.submit(event, '#search_filter') where the results can properly display.
+4. Secure uploads for non-downloading.
 
-4. Need help caching and optimizing server – Really Slow!
-
-5. Secure uploads for non-downloading.
-
-6. pjax SSL issues causing cross domain scripting issues  
+5. pjax SSL issues causing cross domain scripting issues  
 
 
 # Owlphabet Music Business Model
