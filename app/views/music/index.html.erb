@@ -2,42 +2,20 @@
 <div class="section albums">
 <div class="container" style="margin-bottom: 7rem;">
 <div class="row">
-
 <div class="right">
 <%= sort_link(@q, :title, [:title, 'title asc'], '<i class="material-icons black-text">sort_by_alpha</i>'.html_safe) %>
 </div>
+</div>
+<div id="projects">
+    <%= render 'projects_index' %>
+</div>
+  
+       <%= will_paginate @projects, :style => "display: none;" %>
+   
 
-<!--  <div class="left">
-<% tag_cloud(@genres, %w(css1 css2 css3 css4)) do |tag, css_class| %>
-  <%= link_to tag.name, { :id => tag.name }, :class => css_class %>
-<% end %>
-</div> -->
-
-
+   </div>
 </div>
 
-    <% @projects.each_slice(3) do |slice| %> 
-        <div class="row">
-          <% slice.each do |g| %>
-    <div class="col s12 m4">
-	   <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-       <%= link_to (image_tag (g.cover_photo.thumb.url), class: 'activator'), music_project_path(g.friendly_id) %>
-
-        </div>
-         <div class="card-content">
-              <p class="flow-text"><%= g.title.titleize %></p>
-            </div>
-       </div>
-      </div>
-         <% end %>
-    </div>
-         <% end %>
-         <div class="paginate center">
-            <%= will_paginate @projects, :class => 'pagination' %>
-            </div>
-   </div>
- </div>
  
 
 

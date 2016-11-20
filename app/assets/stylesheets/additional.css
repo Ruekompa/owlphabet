@@ -342,3 +342,7 @@ a.css3 {
 .collapsible-body.genres {
     padding: 1rem;
 }
+
+.pagination {
+    display: none;
+}
