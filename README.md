@@ -62,7 +62,7 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 
 ### Issues
-1a. Configuring the rest of fog for google storage 
+1a. Configuring the rest of fog for google storage. Files upload, however, they're not retrievable with soundManager 
 
 2. Had to disable search, otherwise page refreshes, or fix $.pjax.submit(event, '#search_filter') where the results can properly display.
 
