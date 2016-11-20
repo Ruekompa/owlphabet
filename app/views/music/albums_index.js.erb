@@ -1,0 +1,2 @@
+$('#albums').append('<%= escape_javascript render('albums_index') %>');
+$('.pagination').replaceWith('<%= escape_javascript will_paginate(@albums) %>');

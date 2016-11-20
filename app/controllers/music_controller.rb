@@ -1,7 +1,7 @@
 class MusicController < ApplicationController
 	def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
-    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page])
+    @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 6)
     @genres = Album.tag_counts_on(:genres)
 	end
 
@@ -16,11 +16,15 @@ class MusicController < ApplicationController
      @q = Project.search(params[:q])
      @projects =  @q.result.includes(:albums)
        if params[:genres].present?
-        @albums = Album.tagged_with(params[:genres]).order("release_date DESC").paginate(:page => params[:page])
+        @albums = Album.tagged_with(params[:genres]).order("release_date DESC").paginate(:page => params[:page], :per_page => 6)
        else
-     @albums = Album.includes(:project).order("release_date DESC").paginate(:page => params[:page])
+       @albums = Album.includes(:project).order("release_date DESC").paginate(:page => params[:page], :per_page => 6)
      end
-     @genres = Album.tag_counts_on(:genres)	
+     @genres = Album.tag_counts_on(:genres)
+     respond_to do |format|
+      format.html
+      format.js 
+      end	
 	end
 
 	def show_album

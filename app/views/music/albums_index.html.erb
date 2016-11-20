@@ -13,7 +13,6 @@
   </div>
     </li>
   </ul>
-
 </div> 
 
 <div class="left">
@@ -32,34 +31,12 @@
  	</div>
 <% else %>
  <h1 class="general-header"></h1>
-<div class="section white artwork">
-    <% @albums.each_slice(3) do |slice| %> 
-        <div class="row">
-          <% slice.each do |g| %>
-
-        <div class="col s12 m4 l4">
-          <div class="card waves-effect waves-block waves-light">
-            <div class="card-image">
-             <%= link_to (image_tag (g.cover_art.thumb.url), class: 'activator'), music_project_album_path(g.project.friendly_id, g.friendly_id) %>
-              <!-- <span class="card-title">Card Title</span> -->
-            </div>
-            <div class="card-content ">
-             <p class="flow-text" style="font-weight: bolder;"><%= g.project.title.titleize %></p>
-              <p class="flow-text"><%= g.title.titleize %></p>
-            </div>
-            <div class="card-action right">
-          <%= g.release_date.strftime("%Y") %>
-            </div>
-          </div>
-        </div>
-  
-     <% end %>
+ <div id="albums">
+ <%= render 'albums_index' %>
 </div>
 <% end %>
 </div>
-<% end %>
-
-
+<%= will_paginate @albums %>
        
    </div>
  </div>
