@@ -74,6 +74,7 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 6. Puma upstart script not working properly - get error "sudo: start: command not found"  
 
+7. Play track from position (/views/music/show_album.html.erb) - $("td.play_track").on('click',function(e){
 
 # Owlphabet Music Business Model
 
