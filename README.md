@@ -70,7 +70,9 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 4. Secure uploads for non-downloading.
 
-5. pjax SSL issues causing cross domain scripting issues  
+5. pjax SSL issues causing cross domain scripting issues 
+
+6. Puma upstart script not working properly - get error "sudo: start: command not found"  
 
 
 # Owlphabet Music Business Model
