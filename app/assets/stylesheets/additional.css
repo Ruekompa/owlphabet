@@ -346,3 +346,7 @@ a.css3 {
 .pagination {
     display: none;
 }
+
+i.material-icons.medium.black-text.sort {
+    font-size: 2.5rem;
+}
