@@ -62,19 +62,21 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 
 
 ### Issues
-1a. Configuring the rest of fog for google storage. Files upload, however, they're not retrievable with soundManager 
+ #### Configuring the rest of fog for google storage.
+ 1. tagging and applying duration is after commit and store in song_uploader.rb - Cannot retreive to rewrite after store in google cloud. Also need to Secure uploads for non-downloading.
 
+#### Search
 2. Had to disable search, otherwise page refreshes, or fix $.pjax.submit(event, '#search_filter') where the results can properly display.
 
+#### Server needs
 3. Need help caching and optimizing server – Really Slow!
+3a. Puma upstart script not working properly - get error "sudo: start: command not found" 
 
-4. Secure uploads for non-downloading.
-
-5. pjax SSL issues causing cross domain scripting issues 
-
-6. Puma upstart script not working properly - get error "sudo: start: command not found"  
-
-7. Play track from position (/views/music/show_album.html.erb) - $("td.play_track").on('click',function(e){
+#### SSL
+4. pjax SSL issues causing cross domain scripting issues and does not allow history to be used 
+ 
+#### Functionality
+5. Play track from position (/views/music/show_album.html.erb) - $("td.play_track").on('click',function(e){
 
 # Owlphabet Music Business Model
 
