@@ -55,11 +55,9 @@ Try rake routes to see a list of URLS, or checkout the config/routes.rb file to 
 2. Need to make a better track uploader!
 
 
-### Backend
-
-1. Secure uploads for non-downloading.
-2. Tracking Credits - Artist owns and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
-
+### Modeling
+Tracking Credits - Artist owns and or can belong to a project through track credits. Have a discussion. Should credits be through listing roles (writing, arranging, lyrics, instruments)
+habtm vs through credits.
 
 ### Issues
  #### Configuring the rest of fog for google storage.
