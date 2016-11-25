@@ -45,6 +45,16 @@
         <a href="/music" class="brand-logo black-text">OWLPHABET</a>
         <a href="#" data-activates="mobile-nav" class="button-collapse black-text"><i class="material-icons">menu</i></a>
          <ul class="right hide-on-med-and-down">
+         <li>
+
+  <%= search_form_for @q, url: music_path, html: { method: :get, id: 'search_filter' } do |f| %>
+        <div class="input-field">
+          <%= f.search_field :title_cont %>
+          <label for="search"><i class="material-icons black-text search">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+       <% end %>
+</li>
       <li><a style="font-weight: 400;" class="black-text" href="/music"><i class="material-icons">library_music</i></a></li>
         <li><a style="font-weight: 400;" class="black-text" href="/music/albums"><i class="material-icons">&#xE019;</i></a></li>
 
