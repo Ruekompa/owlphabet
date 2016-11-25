@@ -64,7 +64,7 @@ habtm vs through credits.
  1. tagging and applying duration is after commit and store in song_uploader.rb - Cannot retreive to rewrite after store in google cloud. Also need to Secure uploads for non-downloading.
 
 #### Search
-2. Had to disable search, otherwise page refreshes, or fix $.pjax.submit(event, '#search_filter') where the results can properly display.
+2. Fix $.pjax.submit(event, '#search_filter') where the results can properly display without page refresh. application.js has a start
 
 #### Server needs
 3. Need help caching and optimizing server – Really Slow!
