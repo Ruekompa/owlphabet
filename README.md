@@ -76,6 +76,8 @@ habtm vs through credits.
 #### Functionality
 5. Play track from position (/views/music/show_album.html.erb) - $("td.play_track").on('click',function(e){
 
+6. :row_order is only sustainable for 80,000 or so tracks. Need to index each one as it's own, otherwise, it will eventually break.
+
 # Owlphabet Music Business Model
 
 A​ new competitive marketplace  connecting end­user subscribers to content and providing 
