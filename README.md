@@ -1,4 +1,4 @@
-# Owlphabet Music
+3# Owlphabet Music
 An anti-label, a platform for musicians.
 
 ## Getting Started
@@ -71,7 +71,7 @@ habtm vs through credits.
 3a. Puma upstart script not working properly - get error "sudo: start: command not found" 
 
 #### SSL
-4. pjax SSL issues causing cross domain scripting issues and does not allow history to be used 
+4. pjax SSL issues does not allow history to be used 
  
 #### Functionality
 5. Play track from position (/views/music/show_album.html.erb) - $("td.play_track").on('click',function(e){
@@ -80,8 +80,7 @@ habtm vs through credits.
 
 # Owlphabet Music Business Model
 
-A​ new competitive marketplace  connecting end­user subscribers to content and providing 
-relationships through licenses between musicians, visual content makers and advertisers. 
+A​ new competitive marketplace connecting end­user subscribers to content and providing relationships through licenses between musicians, visual content makers and advertisers. 
  
 ## Subscription Streaming 
 2 options: ​
