@@ -1,7 +1,5 @@
 class MusicController < ApplicationController
 
-layout 'music_layout'
-
 	def index
     @q = Project.search(params[:q].try(:merge, m: 'or'))
     @projects =  @q.result.order("title").includes(:albums).paginate(:page => params[:page], :per_page => 6)
