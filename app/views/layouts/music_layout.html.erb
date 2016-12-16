@@ -67,8 +67,6 @@
 
       <% if artist_signed_in? %>  
          <li><a class="dropdown-button black-text" href='#' data-activates='dropdown1'><i class="material-icons">account_circle</i></a></li>
-         <% else %>
-         <li><a class="dropdown-button black-text" href='#' data-activates='dropdown2'><i class="material-icons">account_circle</i></a></li>
          <% end %>
      </nav>
       </ul>
@@ -83,9 +81,6 @@
      <hr>
     <li class="drop-btn-effects"><%= link_to "Sign out", destroy_artist_session_path, :method => :delete, 'data-skip-pjax' => true, :class => 'white-text btn nav-signout' %></li> 
      <% end %>
-  </ul>
-  <ul id='dropdown2' class='dropdown-content'>
-      <li><a href="/artists/sign_in">Login</a></li>
   </ul>
     </div>
 
