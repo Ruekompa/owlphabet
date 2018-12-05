@@ -13,3 +13,4 @@
 /tmp
 /public/uploads/
 /app/songs/
+/config/secrets_backup.yml

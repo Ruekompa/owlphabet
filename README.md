@@ -1,4 +1,4 @@
-3# Owlphabet Music
+# Owlphabet Music (Work in progress)
 An anti-label, a platform for musicians.
 
 ## Getting Started
@@ -11,7 +11,7 @@ First install all of the dependencies.
 * ruby-sox
  
 
-### Debian / Ubuntu
+### For Debian / Ubuntu
 
 **Common Dependencies**
 
@@ -78,7 +78,7 @@ habtm vs through credits.
 
 6. :row_order is only sustainable for 80,000 or so tracks. Need to index each one as it's own, otherwise, it will eventually break.
 
-# Owlphabet Music Business Model
+# Ideas on Owlphabet's Business Model
 
 A​ new competitive marketplace connecting end­user subscribers to content and providing relationships through licenses between musicians, visual content makers and advertisers. 
  
