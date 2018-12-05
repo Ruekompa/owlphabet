@@ -1,5 +1,5 @@
 # Owlphabet Music (Work in progress)
-An anti-label, a platform for musicians.
+An anti-label. A platform for musicians.
 
 ## Getting Started
 First install all of the dependencies.
